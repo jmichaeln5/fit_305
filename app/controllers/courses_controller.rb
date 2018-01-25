@@ -10,7 +10,10 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+<<<<<<< HEAD
     @course = Course.find(params[:id])
+=======
+>>>>>>> initial commit
   end
 
   # GET /courses/new
@@ -70,6 +73,10 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
+<<<<<<< HEAD
       params.require(:course).permit(:name, :description)
+=======
+      params.require(:course).permit(:name)
+>>>>>>> initial commit
     end
 end

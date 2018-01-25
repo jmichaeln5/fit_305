@@ -69,6 +69,10 @@ class InstructorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instructor_params
+<<<<<<< HEAD
       params.require(:instructor).permit(:username, :last_name, :first_name, :email, :password_digest)
+=======
+      params.require(:instructor).permit(:name, :email, :password_digest)
+>>>>>>> initial commit
     end
 end
