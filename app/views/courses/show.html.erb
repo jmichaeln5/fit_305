@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<<<<<<< HEAD
 <p class="title">
   <strong>Name:</strong>
   <%= @course.name %>
@@ -8,17 +7,14 @@
 <p class "date">
   Submitted <%= time_ago_in_words(@course.created_at)%> Ago
 </p>
-
 <p class="description">
   <strong>Description:</strong>
   <%= @course.description %>
 </p>
-=======
 <p>
   <strong>Name:</strong>
   <%= @course.name %>
 </p>
->>>>>>> initial commit
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
