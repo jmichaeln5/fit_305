@@ -1,16 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Username:</strong>
-  <%= @instructor.username %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @instructor.last_name %>
-</p>
-
-<p>
   <strong>First name:</strong>
   <%= @instructor.first_name %>
 </p>
@@ -20,10 +10,15 @@
   <%= @instructor.email %>
 </p>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @instructor.password_digest %>
-</p>
+
+
+<% if @instructor.courses.any? %>
+  <%= render 'courses/index', courses: @instructor.courses  %>
+<% else  %>
+  <h2>No courses</h2>
+<% end %>
+
+<%= render 'courses/form', course: @instructor.courses.new %>
 
 <%= link_to 'Edit', edit_instructor_path(@instructor) %> |
 <%= link_to 'Back', instructors_path %>
