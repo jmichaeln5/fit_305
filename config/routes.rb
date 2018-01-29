@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :courses
   resources :customers
   resources :instructors
+  resources :charges
   # get 'home/index'
   # root 'sessions#new'
   root 'home#index'
