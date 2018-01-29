@@ -1,8 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Username:</strong>
+  <%= @instructor.username %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @instructor.last_name %>
+</p>
+
+<p>
   <strong>First name:</strong>
   <%= @instructor.first_name %>
+
+  <strong>Name:</strong>
+  <%= @instructor.name %>
 </p>
 
 <p>
@@ -20,4 +33,5 @@
 <%= render 'courses/form', course: @instructor.courses.new %>
 
 <%= link_to 'Edit', edit_instructor_path(@instructor) %> |
-<%= link_to 'Back', instructors_path %>
+<%= link_to 'Back', instructors_path %> |
+<%= link_to 'Create Event', new_course_path(@instructor_id) %>

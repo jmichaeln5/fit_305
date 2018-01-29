@@ -17,7 +17,11 @@ class InstructorsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create instructor" do
     assert_difference('Instructor.count') do
+<<<<<<< HEAD
       post instructors_url, params: { instructor: { email: @instructor.email, first_name: @instructor.first_name, last_name: @instructor.last_name, password_digest: @instructor.password_digest, username: @instructor.username } }
+=======
+      post instructors_url, params: { instructor: { email: @instructor.email, name: @instructor.name, password_digest: @instructor.password_digest } }
+>>>>>>> initial commit
     end
 
     assert_redirected_to instructor_url(Instructor.last)
@@ -34,7 +38,11 @@ class InstructorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update instructor" do
+<<<<<<< HEAD
     patch instructor_url(@instructor), params: { instructor: { email: @instructor.email, first_name: @instructor.first_name, last_name: @instructor.last_name, password_digest: @instructor.password_digest, username: @instructor.username } }
+=======
+    patch instructor_url(@instructor), params: { instructor: { email: @instructor.email, name: @instructor.name, password_digest: @instructor.password_digest } }
+>>>>>>> initial commit
     assert_redirected_to instructor_url(@instructor)
   end
 
