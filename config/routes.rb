@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+
   # get 'sessions/new'
 
   get '/login' => 'sessions#new'
+  get '/signup' => 'signups#new'
   resources :sessions
   resources :courses
   resources :customers
