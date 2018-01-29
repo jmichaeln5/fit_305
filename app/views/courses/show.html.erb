@@ -1,11 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<p class="title">
   <strong>Name:</strong>
   <%= @course.name %>
 </p>
+<p class "date">
+  Submitted <%= time_ago_in_words(@course.created_at)%> Ago
+</p>
 
-<p>
+<p class="description">
   <strong>Description:</strong>
   <%= @course.description %>
 </p>
