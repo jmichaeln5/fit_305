@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-<<<<<<< HEAD
   <strong>Username:</strong>
   <%= @instructor.username %>
 </p>
@@ -14,10 +13,9 @@
 <p>
   <strong>First name:</strong>
   <%= @instructor.first_name %>
-=======
+
   <strong>Name:</strong>
   <%= @instructor.name %>
->>>>>>> initial commit
 </p>
 
 <p>
@@ -25,15 +23,15 @@
   <%= @instructor.email %>
 </p>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @instructor.password_digest %>
-</p>
+
+<% if @instructor.courses.any? %>
+  <%= render 'courses/index', courses: @instructor.courses  %>
+<% else  %>
+  <h2>No courses</h2>
+<% end %>
+
+<%= render 'courses/form', course: @instructor.courses.new %>
 
 <%= link_to 'Edit', edit_instructor_path(@instructor) %> |
-<<<<<<< HEAD
 <%= link_to 'Back', instructors_path %> |
 <%= link_to 'Create Event', new_course_path(@instructor_id) %>
-=======
-<%= link_to 'Back', instructors_path %>
->>>>>>> initial commit

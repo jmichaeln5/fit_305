@@ -1,6 +1,6 @@
 class InstructorsController < ApplicationController
   before_action :set_instructor, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize, except: [:new, :create]
   # GET /instructors
   # GET /instructors.json
   def index
@@ -24,17 +24,15 @@ class InstructorsController < ApplicationController
   # POST /instructors
   # POST /instructors.json
   def create
-    @instructor = Instructor.new(instructor_params)
+    instructor = Instructor.new(instructor_params)
 
-    respond_to do |format|
-      if @instructor.save
-        format.html { redirect_to @instructor, notice: 'Instructor was successfully created.' }
-        format.json { render :show, status: :created, location: @instructor }
-      else
-        format.html { render :new }
-        format.json { render json: @instructor.errors, status: :unprocessable_entity }
-      end
-    end
+        if instructor.save
+          session[:instructor_id] = instructor.id
+          redirect_to instructor_path(instructor.id)
+        else
+          redirect_to root_path
+        end
+
   end
 
   # PATCH/PUT /instructors/1
@@ -69,10 +67,8 @@ class InstructorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def instructor_params
-<<<<<<< HEAD
-      params.require(:instructor).permit(:username, :last_name, :first_name, :email, :password_digest)
-=======
-      params.require(:instructor).permit(:name, :email, :password_digest)
->>>>>>> initial commit
+      # params.require(:instructor).permit(:name, :email, :password_confirmation)
+      params.require(:instructor).permit(:username, :last_name, :first_name, :email, :password, :password_confirmation)
+
     end
 end
