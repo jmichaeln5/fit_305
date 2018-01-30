@@ -1,18 +1,4 @@
 
-<!-- View instructoR <= singular -->
-<!-- http://localhost:3000/instructors/1 -->
-<!-- app/views/courses/_index.html.erb -->        <!-- put  _ infront of file name -->
-<%# courses.each do |course| %>
-
-
-<!-- http://localhost:3000/courses -->
-<!-- app/views/courses/index.html.erb -->        <!-- no _ infront of file name -->
-<%# @courses.each do |course| %>
-
-
-
-
-<p id="notice"><%= notice %></p>
 
 <h1>Courses</h1>
 
@@ -44,7 +30,7 @@
     <% end %>
   </tbody>
 </table>
-
+<%= link_to 'Done', :back %>
 <br>
 
 <%= link_to 'New Course', new_course_path %>

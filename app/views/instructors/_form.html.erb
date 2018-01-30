@@ -29,14 +29,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, id: :instructor_last_name %>
+    <%= form.label :first_name %>
+    <%= form.text_field :first_name, id: :instructor_first_name %>
   </div>
 
   <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, id: :instructor_first_name %>
-
+    <%= form.label :last_name %>
+    <%= form.text_field :last_name, id: :instructor_last_name %>
   </div>
 
   <div class="field">
@@ -44,13 +43,13 @@
     <%= form.text_field :email, id: :instructor_email %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :password_digest %>
     <%= form.text_field :password_digest, id: :instructor_password_digest %>
-  </div>
+  </div> -->
 
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Done' %>
   </div>
 <% end %>

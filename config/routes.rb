@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   get '/login' => 'sessions#new'
   get '/signup' => 'signups#new'
+  get '/editing' => 'courses#editing'
   resources :sessions
   resources :courses
   resources :customers

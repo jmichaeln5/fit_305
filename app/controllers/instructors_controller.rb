@@ -1,6 +1,6 @@
 class InstructorsController < ApplicationController
   before_action :set_instructor, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, except: [:new, :create]
+  before_action :authorize_instructor, except: [:new, :create]
   # GET /instructors
   # GET /instructors.json
   def index
@@ -32,7 +32,6 @@ class InstructorsController < ApplicationController
         else
           redirect_to root_path
         end
-
   end
 
   # PATCH/PUT /instructors/1

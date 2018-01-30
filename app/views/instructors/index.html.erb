@@ -17,9 +17,7 @@
   <tbody>
     <% @instructors.each do |instructor| %>
       <tr>
-
         <td><%= image_tag instructor.image.url(:thumb) %></td>
-
         <td><%= instructor.username %></td>
         <td><%= instructor.last_name %></td>
         <td><%= instructor.first_name %></td>
@@ -35,4 +33,5 @@
 
 <br>
 
-<%= link_to 'New Instructor', new_instructor_path %>
+<%= link_to 'New Instructor', new_instructor_path %> |
+<%= link_to 'Back', :back %>
