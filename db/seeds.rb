@@ -11,7 +11,6 @@
 # #######################
 # #######################
 
-
 # #######################
 # #######################  Instructor Seeds
 # #######################
@@ -32,7 +31,7 @@ Jorge = Instructor.create(username:"jlromao", last_name: "Romao", first_name: "J
 
 customer1 = Customer.create(username:"customer1", last_name: "customer1", first_name: "customer1", email: "customer1@gmail.com")
 
-customer2 = Customer.create(username:" customer2", last_name: " customer2", first_name: " customer2", email: " customer2@gmail.com")
+customer2 = Customer.create(username:" customer2", last_name: " customer2", first_name: " customer2", email: "customer2@gmail.com")
 
 customer3 = Customer.create(username:"customer3", last_name: "customer3", first_name: "customer3", email: "customer3@gmail.com")
 
