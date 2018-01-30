@@ -1,0 +1,19 @@
+
+  <h1>Current Courses</h1>
+
+  <% @courses.each do |course| %>
+  <div class="courses">
+      <p>
+        <strong>Name:</strong>
+        <%= course.name %>
+      </p>
+      <p>
+        <strong>Description:</strong>
+        <%= course.description %>
+      </p>
+    </div>
+  <% end %>
+
+  <p>
+    <%= link_to 'Done', :back %>
+  </p>
