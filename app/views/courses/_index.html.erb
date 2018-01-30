@@ -1,0 +1,50 @@
+
+<!-- View instructoR <= singular -->
+<!-- http://localhost:3000/instructors/1 -->
+<!-- app/views/courses/_index.html.erb -->        <!-- put  _ infront of file name -->
+<%# courses.each do |course| %>
+
+
+<!-- http://localhost:3000/courses -->
+<!-- app/views/courses/index.html.erb -->        <!-- no _ infront of file name -->
+<%# @courses.each do |course| %>
+
+
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Courses</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+
+      <th>Description</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% courses.each do |course| %>
+      <tr>
+
+        <td><%= image_tag course.image.url(:thumb) %></td>
+
+        <td><%= course.name %></td>
+
+        <td><%= course.description %></td>
+
+        <td><%= link_to 'Show', course %></td>
+        <td><%= link_to 'Edit', edit_course_path(course) %></td>
+        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Course', new_course_path %>

@@ -11,6 +11,18 @@
     </div>
   <% end %>
 
+
+  <div class="field">
+    <%= form.label :fb_token %>
+    <%= form.text_field :fb_token, id: :user_fb_token %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :instructor_image %>
+  </div>
+
   <div class="field">
     <%= form.label :username %>
     <%= form.text_field :username, id: :instructor_username %>
@@ -35,6 +47,7 @@
     <%= form.label :password_digest %>
     <%= form.text_field :password_digest, id: :instructor_password_digest %>
   </div> -->
+
 
   <div class="actions">
     <%= form.submit 'Done' %>

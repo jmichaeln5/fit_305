@@ -67,7 +67,7 @@ class InstructorsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def instructor_params
       # params.require(:instructor).permit(:name, :email, :password_confirmation)
-      params.require(:instructor).permit(:username, :last_name, :first_name, :email, :password, :password_confirmation)
+      params.require(:instructor).permit(:username, :last_name, :first_name, :email, :password, :password_confirmation, :image, :fb_id, :fb_token)
 
     end
 end

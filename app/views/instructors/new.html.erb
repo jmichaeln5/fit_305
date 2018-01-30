@@ -26,6 +26,28 @@
       <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation %>
   </p>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image, id: :instructor_image %>
+  </div>
+
+
+
+<br>
+
+<div>
+  <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" data-auto-logout-link="true">
+  </fb:login-button>
+</div>
+
+  <div id="status">
+  </div>
+
+<tr>
+
+</tr>
+
   <p>
       <%= f.submit 'Create my Account'%>
   </p>
