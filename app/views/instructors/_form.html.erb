@@ -11,8 +11,19 @@
     </div>
   <% end %>
 
+
   <div class="field">
-<<<<<<< HEAD
+    <%= form.label :fb_token %>
+    <%= form.text_field :fb_token, id: :user_fb_token %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :instructor_image %>
+  </div>
+
+  <div class="field">
     <%= form.label :username %>
     <%= form.text_field :username, id: :instructor_username %>
   </div>
@@ -25,10 +36,7 @@
   <div class="field">
     <%= form.label :first_name %>
     <%= form.text_field :first_name, id: :instructor_first_name %>
-=======
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :instructor_name %>
->>>>>>> initial commit
+
   </div>
 
   <div class="field">
@@ -40,6 +48,7 @@
     <%= form.label :password_digest %>
     <%= form.text_field :password_digest, id: :instructor_password_digest %>
   </div>
+
 
   <div class="actions">
     <%= form.submit %>

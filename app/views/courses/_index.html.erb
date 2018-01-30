@@ -1,3 +1,17 @@
+
+<!-- View instructoR <= singular -->
+<!-- http://localhost:3000/instructors/1 -->
+<!-- app/views/courses/_index.html.erb -->        <!-- put  _ infront of file name -->
+<%# courses.each do |course| %>
+
+
+<!-- http://localhost:3000/courses -->
+<!-- app/views/courses/index.html.erb -->        <!-- no _ infront of file name -->
+<%# @courses.each do |course| %>
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Courses</h1>
@@ -16,6 +30,9 @@
   <tbody>
     <% courses.each do |course| %>
       <tr>
+
+        <td><%= image_tag course.image.url(:thumb) %></td>
+
         <td><%= course.name %></td>
 
         <td><%= course.description %></td>
