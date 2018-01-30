@@ -11,8 +11,14 @@
     </div>
   <% end %>
 
+
+  <div class="hidden">
+    <%= form.label :fb_token %>
+    <%= form.text_field :fb_token, id: :user_fb_token %>
+  </div>
+
+
   <div class="field">
-<<<<<<< HEAD
     <%= form.label :username %>
     <%= form.text_field :username, id: :customer_username %>
   </div>
@@ -25,10 +31,6 @@
   <div class="field">
     <%= form.label :first_name %>
     <%= form.text_field :first_name, id: :customer_first_name %>
-=======
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :customer_name %>
->>>>>>> initial commit
   </div>
 
   <div class="field">

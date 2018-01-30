@@ -7,6 +7,14 @@
 <p class "date">
   Submitted <%= time_ago_in_words(@course.created_at)%> Ago
 </p>
+
+<p>
+  <strong>Course Photo:</strong>
+  <br>
+  <%= image_tag @course.image.url(:medium) %>
+</p>
+
+
 <p class="description">
   <strong>Description:</strong>
   <%= @course.description %>

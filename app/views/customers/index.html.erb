@@ -5,13 +5,10 @@
 <table>
   <thead>
     <tr>
-<<<<<<< HEAD
       <th>Username</th>
       <th>Last name</th>
       <th>First name</th>
-=======
-      <th>Name</th>
->>>>>>> initial commit
+
       <th>Email</th>
       <th>Password digest</th>
       <th colspan="3"></th>
@@ -21,13 +18,11 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-<<<<<<< HEAD
+
         <td><%= customer.username %></td>
         <td><%= customer.last_name %></td>
         <td><%= customer.first_name %></td>
-=======
-        <td><%= customer.name %></td>
->>>>>>> initial commit
+
         <td><%= customer.email %></td>
         <td><%= customer.password_digest %></td>
         <td><%= link_to 'Show', customer %></td>

@@ -5,20 +5,30 @@
   <%= @instructor.username %>
 </p>
 
+
 <p>
   <strong>Last name:</strong>
   <%= @instructor.last_name %>
 </p>
 
 <p>
+  <strong>Instructor Photo:</strong>
+  <%= image_tag @instructor.image.url(:thumb) %>
+</p>
+
+
+<p>
   <strong>First name:</strong>
   <%= @instructor.first_name %>
 </p>
-  
+
 <p>
   <strong>Email:</strong>
   <%= @instructor.email %>
 </p>
+
+
+<%= link_to 'Edit Instructor', edit_instructor_path(@instructor) %>
 
 
 <% if @instructor.courses.any? %>
@@ -31,4 +41,3 @@
 
 <%= link_to 'Edit', edit_instructor_path(@instructor) %> |
 <%= link_to 'Back', instructors_path %> |
-<%= link_to 'Create Event', new_course_path(@instructor_id) %>
