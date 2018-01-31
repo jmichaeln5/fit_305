@@ -35,11 +35,11 @@ ActiveRecord::Schema.define(version: 20180131210615) do
     t.index ["instructor_id"], name: "index_courses_on_instructor_id"
   end
 
-  create_table "customer_courses", force: :cascade do |t|
+  create_table "courses_customers", id: false, force: :cascade do |t|
     t.bigint "customer_id"
     t.bigint "course_id"
-    t.index ["course_id"], name: "index_customer_courses_on_course_id"
-    t.index ["customer_id"], name: "index_customer_courses_on_customer_id"
+    t.index ["course_id"], name: "index_courses_customers_on_course_id"
+    t.index ["customer_id"], name: "index_courses_customers_on_customer_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -67,6 +67,6 @@ ActiveRecord::Schema.define(version: 20180131210615) do
   end
 
   add_foreign_key "courses", "instructors"
-  add_foreign_key "customer_courses", "courses"
-  add_foreign_key "customer_courses", "customers"
+  add_foreign_key "courses_customers", "courses"
+  add_foreign_key "courses_customers", "customers"
 end
