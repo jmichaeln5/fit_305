@@ -24,7 +24,6 @@ instructor3 = Instructor.create(username:"instructor3", last_name: "instructor3"
 
 instructor4 = Instructor.create(username:"instructor4", last_name: "instructor4", first_name: "instructor4", email: "instructor4@gmail.com")
 
-Jorge = Instructor.create(username:"jlromao", last_name: "Romao", first_name: "Jorge", email: "jorge@gmail.com")
 
 # #######################
 # #######################  Customer Seeds
