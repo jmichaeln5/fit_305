@@ -5,13 +5,13 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   get '/signup' => 'signups#new'
   get '/editing' => 'courses#editing'
-  
+
+
   resources :charges
   resources :sessions
   resources :courses
   resources :customers
   resources :instructors
-  resources :charges
   # get 'home/index'
   # root 'sessions#new'
   root 'home#index'

@@ -29,7 +29,9 @@
     });
   }
 
+
 document.addEventListener("turbolinks:load", function(){
+
   window.fbAsyncInit = function() {
     FB.init({
       appId      : '1141933055943093',
@@ -56,6 +58,7 @@ document.addEventListener("turbolinks:load", function(){
     });
 
   };
+
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
@@ -65,7 +68,9 @@ document.addEventListener("turbolinks:load", function(){
   }(document, 'script', 'facebook-jssdk'));
 
 
+
 })
+
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.

@@ -27,7 +27,7 @@
 # # #######################  Customer Seeds
 # #######################
 
-customer1 = Customer.create(username:"customer1", last_name: "customer1", first_name: "customer1", email: "customer1@gmail.com", password: "1111", password_confirmation: "1111")
+# customer1 = Customer.create(username:"customer1", last_name: "customer1", first_name: "customer1", email: "customer1@gmail.com", password: "1111", password_confirmation: "1111")
 
 # customer2 = Customer.create(username:" customer2", last_name: " customer2", first_name: " customer2", email: "customer2@gmail.com")
 #
@@ -52,8 +52,8 @@ customer1 = Customer.create(username:"customer1", last_name: "customer1", first_
 #######################  Course Seeds
 ######################
 
-course1 = Course.create(name: "course1", description: "This is course1 taught by instructor1", instructor_id: 1, created_at: "2018-01-29 19:31:21", updated_at: "2018-01-29 19:31:21")
-
-course2 = Course.create(name: "course2", description: "This is course2 taught by instructor2", instructor_id: 2)
-
-course3 = Course.create(name: "course3", description: "This is course3 taught by instructor3", instructor_id: 3)
+# course1 = Course.create(name: "course1", description: "This is course1 taught by instructor1", instructor_id: 1, created_at: "2018-01-29 19:31:21", updated_at: "2018-01-29 19:31:21")
+#
+# course2 = Course.create(name: "course2", description: "This is course2 taught by instructor2", instructor_id: 2)
+#
+# course3 = Course.create(name: "course3", description: "This is course3 taught by instructor3", instructor_id: 3)

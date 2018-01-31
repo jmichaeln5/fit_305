@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180131210615) do
+=======
+ActiveRecord::Schema.define(version: 20180130030631) do
+>>>>>>> jorge
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +29,7 @@ ActiveRecord::Schema.define(version: 20180131210615) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+<<<<<<< HEAD
     t.string "address"
     t.string "address2"
     t.string "city"
@@ -32,6 +37,8 @@ ActiveRecord::Schema.define(version: 20180131210615) do
     t.string "zip"
     t.float "latitude"
     t.float "longitude"
+=======
+>>>>>>> jorge
     t.index ["instructor_id"], name: "index_courses_on_instructor_id"
   end
 
@@ -40,6 +47,13 @@ ActiveRecord::Schema.define(version: 20180131210615) do
     t.bigint "course_id"
     t.index ["course_id"], name: "index_courses_customers_on_course_id"
     t.index ["customer_id"], name: "index_courses_customers_on_customer_id"
+  end
+
+  create_table "customer_courses", force: :cascade do |t|
+    t.bigint "customer_id"
+    t.bigint "course_id"
+    t.index ["course_id"], name: "index_customer_courses_on_course_id"
+    t.index ["customer_id"], name: "index_customer_courses_on_customer_id"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -69,4 +83,6 @@ ActiveRecord::Schema.define(version: 20180131210615) do
   add_foreign_key "courses", "instructors"
   add_foreign_key "courses_customers", "courses"
   add_foreign_key "courses_customers", "customers"
+  add_foreign_key "customer_courses", "courses"
+  add_foreign_key "customer_courses", "customers"
 end
