@@ -3,11 +3,21 @@
 <table>
   <thead>
     <tr>
+<<<<<<< HEAD
       <th>Username</th>
       <th>Last name</th>
       <th>First name</th>
       <th>Name</th>
+<<<<<<< HEAD
       <th>Image</th>
+=======
+=======
+      <th>Image</th>
+      <th>Username</th>
+      <th>Last name</th>
+      <th>First name</th>
+>>>>>>> b370d4db53a49835bed3c95a12390a49eab2ea8a
+>>>>>>> jorge
       <th>Email</th>
       <th colspan="3"></th>
     </tr>
@@ -16,10 +26,24 @@
   <tbody>
     <% @instructors.each do |instructor| %>
       <tr>
+<<<<<<< HEAD
         <td><%= image_tag instructor.image.url(:thumb) %></td>
         <td><%= instructor.username %></td>
         <td><%= instructor.last_name %></td>
         <td><%= instructor.first_name %></td>
+=======
+<<<<<<< HEAD
+        <td><%= instructor.username %></td>
+        <td><%= instructor.last_name %></td>
+        <td><%= instructor.first_name %></td>
+        <td><%= instructor.name %></td>
+=======
+        <td><%= image_tag instructor.image.url(:thumb) %></td>
+        <td><%= instructor.username %></td>
+        <td><%= instructor.last_name %></td>
+        <td><%= instructor.first_name %></td>
+>>>>>>> b370d4db53a49835bed3c95a12390a49eab2ea8a
+>>>>>>> jorge
         <td><%= instructor.email %></td>
 
         <td><%= link_to 'Show', instructor %></td>

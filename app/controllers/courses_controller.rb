@@ -1,5 +1,6 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+
   before_action :authorize_instructor, except: [:new, :create, :index]
   # before_action :authorize_customer, only: [:show]
 
