@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180131183437) do
+=======
+ActiveRecord::Schema.define(version: 20180131210615) do
+>>>>>>> 80290a1f62f9c5f26ad336657dfa330d4f947601
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +29,13 @@ ActiveRecord::Schema.define(version: 20180131183437) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.string "address"
+    t.string "address2"
+    t.string "city"
+    t.string "state"
+    t.string "zip"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["instructor_id"], name: "index_courses_on_instructor_id"
   end
 
