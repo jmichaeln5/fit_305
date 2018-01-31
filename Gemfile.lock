@@ -79,6 +79,7 @@ GEM
     ffi (1.9.18)
     figaro (1.1.1)
       thor (~> 0.14)
+    geocoder (1.4.5)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     hirb (0.7.3)
@@ -219,6 +220,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise (~> 4.2)
   figaro
+  geocoder
   hirb (~> 0.7.3)
   jbuilder (~> 2.5)
   jquery-rails
