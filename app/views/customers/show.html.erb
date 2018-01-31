@@ -23,9 +23,8 @@
 <hr>
 
 <h1>Available Courses</h1>
-<% @customer = Customer.find 1 %>
 
-  <%= render 'courses/current', courses: @customer.courses %>
+  <%= render 'courses/current', courses: @customer.courses if @customer.courses.any? %>
 
 <hr>
 
