@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-  before_action :authorize
+  before_action :authorize_instructor, except: [:new, :create]
+  before_action :authorize_customer, only: [:show]
 
   # GET /courses
   # GET /courses.json
@@ -71,7 +72,7 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :description, :instructor_id)
+      params.require(:course).permit(:name, :description, :instructor_id, :image, :fb_id, :fb_token)
 
     end
 end

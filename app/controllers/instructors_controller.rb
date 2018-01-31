@@ -1,6 +1,6 @@
 class InstructorsController < ApplicationController
   before_action :set_instructor, only: [:show, :edit, :update, :destroy]
-  before_action :authorize, except: [:new, :create]
+  before_action :authorize_instructor, except: [:new, :create]
   # GET /instructors
   # GET /instructors.json
   def index
@@ -32,7 +32,6 @@ class InstructorsController < ApplicationController
         else
           redirect_to root_path
         end
-
   end
 
   # PATCH/PUT /instructors/1
@@ -52,11 +51,15 @@ class InstructorsController < ApplicationController
   # DELETE /instructors/1
   # DELETE /instructors/1.json
   def destroy
-    @instructor.destroy
-    respond_to do |format|
-      format.html { redirect_to instructors_url, notice: 'Instructor was successfully destroyed.' }
-      format.json { head :no_content }
+    if @instructor.destroy
+      p 'Instructor was successfully destroyed.'
+      session[:instructor_id] = nil
+      # respond_to do |format|
+      #   format.html { redirect_to instructors_url, notice: 'Instructor was successfully destroyed.' }
+      #   format.json { head :no_content }
+      # end
     end
+    redirect_to root_path
   end
 
   private
@@ -68,7 +71,7 @@ class InstructorsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def instructor_params
       # params.require(:instructor).permit(:name, :email, :password_confirmation)
-      params.require(:instructor).permit(:username, :last_name, :first_name, :email, :password, :password_confirmation)
+      params.require(:instructor).permit(:username, :last_name, :first_name, :email, :password, :password_confirmation, :image, :fb_id, :fb_token)
 
     end
 end
