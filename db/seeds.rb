@@ -12,10 +12,7 @@
 # # #######################
 
 # #######################
-# #######################  Instructor Seeds
-# # #######################
-#
-<<<<<<< HEAD
+
 # instructor1 = Instructor.create(username:"instructor1", last_name: "instructor1", first_name: "instructor1", email: "instructor1@gmail.com")
 #
 # instructor2 = Instructor.create(username:" instructor2", last_name: " instructor2", first_name: " instructor2", email: " instructor2@gmail.com")
@@ -49,35 +46,14 @@ customer1 = Customer.create(username:"customer1", last_name: "customer1", first_
 # customer9 = Customer.create(username:"customer9", last_name: "customer9", first_name: "customer9", email: "customer9@gmail.com")
 #
 # customer10 = Customer.create(username:"customer10", last_name: "customer10", first_name: "customer10", email: "customer10@gmail.com")
-=======
 
-
-
-
-
-
-
-
-
-
->>>>>>> 80290a1f62f9c5f26ad336657dfa330d4f947601
 
 # #######################
 #######################  Course Seeds
 ######################
 
-<<<<<<< HEAD
-# course1 = Course.create(name: "course1", description: "This is course1 taught by instructor1", instructor_id: 1, created_at: "2018-01-29 19:31:21", updated_at: "2018-01-29 19:31:21")
-#
-# course2 = Course.create(name: "course2", description: "This is course2 taught by instructor2", instructor_id: 2)
-#
-# course3 = Course.create(name: "course3", description: "This is course3 taught by instructor3", instructor_id: 3)
-
-puts "I was here :"
-=======
 course1 = Course.create(name: "course1", description: "This is course1 taught by instructor1", instructor_id: 1, created_at: "2018-01-29 19:31:21", updated_at: "2018-01-29 19:31:21")
 
 course2 = Course.create(name: "course2", description: "This is course2 taught by instructor2", instructor_id: 2)
 
 course3 = Course.create(name: "course3", description: "This is course3 taught by instructor3", instructor_id: 3)
->>>>>>> 80290a1f62f9c5f26ad336657dfa330d4f947601
