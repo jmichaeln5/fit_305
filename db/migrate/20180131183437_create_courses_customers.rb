@@ -5,4 +5,4 @@ class CreateCoursesCustomers < ActiveRecord::Migration[5.1]
       t.belongs_to :course, foreign_key: true
     end
   end
-end
+ends
