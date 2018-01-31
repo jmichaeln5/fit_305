@@ -1,20 +1,19 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p>  -->
 
+<h1>Course</h1>
 <p class="title">
   <strong>Name:</strong>
   <%= @course.name %>
-</p>
-<p class "date">
-  Submitted <%= time_ago_in_words(@course.created_at)%> Ago
 </p>
 <p class="description">
   <strong>Description:</strong>
   <%= @course.description %>
 </p>
 <p>
-  <strong>Name:</strong>
-  <%= @course.name %>
+  <strong>Course Photo:</strong>
+  <br>
+  <%= image_tag @course.image.url(:medium) %>
 </p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<hr>
+<%= link_to 'Done', instructor_path(current_instructor) %>
+<%= link_to 'Edit', edit_course_path(@course) %>
