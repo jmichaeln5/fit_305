@@ -23,6 +23,9 @@ class CoursesController < ApplicationController
   def edit
   end
 
+
+  def authorize
+  end 
   # POST /courses
   # POST /courses.json
   def create
