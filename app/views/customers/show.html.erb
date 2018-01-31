@@ -16,6 +16,20 @@
   <strong>Email:</strong>
   <%= @customer.email %>
 </p>
+<%= link_to 'Edit', edit_customer_path(@customer) %>
+<!-- <%= link_to 'Back', instructors_path %> -->
+<br>
 
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+<hr>
+
+<h1>Available Courses</h1>
+<% @customer = Customer.find 1 %>
+
+  <%= render 'courses/current', courses: @customer.courses %>
+
+<hr>
+
+<%= link_to 'Log out', logout_path %>
+
+<!-- <%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %> -->

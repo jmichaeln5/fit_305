@@ -2,20 +2,20 @@
 
 <h1>Current Instructor</h1>
 <p>
+  <strong>Instructor Photo:</strong><br>
+  <%= image_tag @instructor.image.url(:thumb) %>
+</p>
+<p>
   <strong>Username:</strong>
   <%= @instructor.username %>
 </p>
 <p>
-  <strong>Last name:</strong>
-  <%= @instructor.last_name %>
-</p>
-<p>
-  <strong>Instructor Photo:</strong>
-  <%= image_tag @instructor.image.url(:thumb) %>
-</p>
-<p>
   <strong>First name:</strong>
   <%= @instructor.first_name %>
+</p>
+<p>
+  <strong>Last name:</strong>
+  <%= @instructor.last_name %>
 </p>
 <p>
   <strong>Email:</strong>
@@ -24,15 +24,21 @@
 <%= link_to 'Edit', edit_instructor_path(@instructor) %>
 <!-- <%= link_to 'Back', instructors_path %> -->
 <br>
+
 <hr>
-<br>
+
+<h1>Current Courses</h1>
+
 <% if @instructor.courses.any? %>
-  <%= render 'courses/theindex', courses: @instructor.courses  %>
-  <br>
+  <%= render 'courses/current', courses: @instructor.courses%>
 <% else  %>
-  <h2>No courses</h2>
+  <h3>No courses Added yet...</h3>
 <% end %>
-<br>
-<%= render 'courses/form', course: @instructor.courses.new %>
+
+<hr>
+
+<h1>Add New Course</h1>
+
+<%= render 'courses/addcourse', course: @instructor.courses.new %>
 
 <%= link_to 'Log out', logout_path %>
