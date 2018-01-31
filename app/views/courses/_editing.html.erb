@@ -1,0 +1,41 @@
+<%= form_with model: courses, html:{multipart: true} do |form| %>
+
+  <% if courses.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(course.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+        <ul>
+        <% course.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <!-- <h1>Add New Course</h1> -->
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :course_image %>
+  </div>
+  <div class="field">
+    <%= form.label 'Class Name:'%>
+    <%= form.text_field :name, id: :course_name %>
+  </div>
+  <div class="field">
+    <%= form.label 'Description of class' %>
+    <%= form.text_area :description, id: :course_description %>
+  </div>
+  <!-- <% if @instructor.nil? %>
+    <div class="field">
+      <%= form.label :instructor_id %>
+      <%= form.text_field :instructor_id %>
+    </div>
+  <% else %>
+   <%= form.hidden_field :instructor_id, value: @instructor.id %>
+  <% end %> -->
+  <hr>
+  <div class="actions">
+    <%= form.submit "Update Class" %>
+  </div>
+  <hr>
+<% end %>
+<!-- <%= link_to 'Done', instructor_path(current_instructor) %> -->

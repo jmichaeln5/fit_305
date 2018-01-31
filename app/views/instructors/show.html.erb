@@ -1,39 +1,44 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p> -->
 
+<h1>Current Instructor</h1>
 <p>
-<<<<<<< HEAD
+  <strong>Instructor Photo:</strong><br>
+  <%= image_tag @instructor.image.url(:thumb) %>
+</p>
+<p>
   <strong>Username:</strong>
   <%= @instructor.username %>
 </p>
-
+<p>
+  <strong>First name:</strong>
+  <%= @instructor.first_name %>
+</p>
 <p>
   <strong>Last name:</strong>
   <%= @instructor.last_name %>
 </p>
-
-<p>
-  <strong>First name:</strong>
-  <%= @instructor.first_name %>
-=======
-  <strong>Name:</strong>
-  <%= @instructor.name %>
->>>>>>> initial commit
-</p>
-
 <p>
   <strong>Email:</strong>
   <%= @instructor.email %>
 </p>
+<%= link_to 'Edit', edit_instructor_path(@instructor) %>
+<!-- <%= link_to 'Back', instructors_path %> -->
+<br>
 
-<p>
-  <strong>Password digest:</strong>
-  <%= @instructor.password_digest %>
-</p>
+<hr>
 
-<%= link_to 'Edit', edit_instructor_path(@instructor) %> |
-<<<<<<< HEAD
-<%= link_to 'Back', instructors_path %> |
-<%= link_to 'Create Event', new_course_path(@instructor_id) %>
-=======
-<%= link_to 'Back', instructors_path %>
->>>>>>> initial commit
+<h1>Current Courses</h1>
+
+<% if @instructor.courses.any? %>
+  <%= render 'courses/current', courses: @instructor.courses%>
+<% else  %>
+  <h3>No courses Added yet...</h3>
+<% end %>
+
+<hr>
+
+<h1>Add New Course</h1>
+
+<%= render 'courses/addcourse', course: @instructor.courses.new %>
+
+<%= link_to 'Log out', logout_path %>
