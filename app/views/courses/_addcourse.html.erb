@@ -1,3 +1,5 @@
+<!-- Add New Course  -->
+
 <%= form_with model: course, html:{multipart: true} do |form| %>
 
   <% if course.errors.any? %>
@@ -16,16 +18,10 @@
     <%= form.label :image %>
     <%= form.file_field :image, id: :course_image %>
   </div>
-
-
-<br>
-<h1>Add New Course</h1>
   <div class="field">
     <%= form.label 'Class Name:'%>
     <%= form.text_field :name, id: :course_name %>
   </div>
-
-
   <div class="field">
     <%= form.label 'Description of class' %>
     <%= form.text_area :description, id: :course_description %>
@@ -40,8 +36,9 @@
   <% else %>
    <%= form.hidden_field :instructor_id, value: @instructor.id %>
   <% end %>
-
+  <hr>
   <div class="actions">
-    <%= form.submit "Create Class" %>
+    <%= form.submit "Create Course" %>
   </div>
+  <hr>
 <% end %>
