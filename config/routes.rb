@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get '/signup' => 'signups#new'
   get '/editing' => 'courses#editing'
 
-
   resources :charges
   resources :sessions
   resources :courses
