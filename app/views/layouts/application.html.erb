@@ -3,7 +3,6 @@
   <head>
     <title>Fit305</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -14,10 +13,23 @@
     <%= link_to 'Home', root_url %> |
     <%= link_to 'View Instructors', instructors_path %> | <%= link_to 'View courses',
      courses_path %>  | <%= link_to 'View Customers', customers_path %> |
-     <%= link_to 'Log out', logout_path %>
+     <% if current_customer %>
+                 <a>Welcome&nbsp;&nbsp;&nbsp;<%= current_customer.first_name %> </a><%= link_to 'Log Out', logout_path %>
+               <% elsif current_instructor%>
+                <a>Welcome&nbsp;&nbsp;&nbsp;<%= current_instructor.first_name %> </a>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Log Out', logout_path %>
+               <% else %>
+
+                 <%= link_to 'Log In', login_path%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Sign Up', signup_path %>&nbsp;&nbsp;
+               <% end %>
+
+     <!-- <%= link_to 'Log out', logout_path %> -->
     <fb:login-button id="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-auto-logout-link="true" data-turbolinks-permanent><!-- facebook login/status begin -->
     </fb:login-button>
-
+    <a href="https://www.accuweather.com/en/us/miami-fl/33128/weather-forecast/347936" class="aw-widget-legal">
+    <!--
+    By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
+    -->
+    </a><div id="awcc1517519785387" class="aw-widget-current"  data-locationkey="" data-unit="f" data-language="en-us" data-useip="true" data-uid="awcc1517519785387"></div><script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script>
   </div>
     <br><br>
     <hr>

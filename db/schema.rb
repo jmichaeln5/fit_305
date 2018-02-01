@@ -10,11 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
+
 ActiveRecord::Schema.define(version: 20180131210615) do
-=======
-ActiveRecord::Schema.define(version: 20180130030631) do
->>>>>>> jorge
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,7 +26,6 @@ ActiveRecord::Schema.define(version: 20180130030631) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
-<<<<<<< HEAD
     t.string "address"
     t.string "address2"
     t.string "city"
@@ -37,8 +33,6 @@ ActiveRecord::Schema.define(version: 20180130030631) do
     t.string "zip"
     t.float "latitude"
     t.float "longitude"
-=======
->>>>>>> jorge
     t.index ["instructor_id"], name: "index_courses_on_instructor_id"
   end
 
