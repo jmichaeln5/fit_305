@@ -14,6 +14,10 @@
   <br>
   <%= image_tag @course.image.url(:medium) %>
 </p>
+<p class="date">
+  <strong>Date:</strong>
+  <%= @course.date %>
+</p>
 <hr>
 <%= link_to 'Done', instructor_path(current_instructor) %>
 <%= link_to 'Edit', edit_course_path(@course) %>

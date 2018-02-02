@@ -6,14 +6,14 @@ git_source(:github) do |repo_name|
 end
 
 gem 'geocoder'
-gem 'jquery-rails', '~> 3.1.4'
+gem 'jquery-rails'
 gem "figaro"
 gem 'hirb', '~> 0.7.3'
 gem 'stripe'
 gem "paperclip", "~> 5.0.0"
 
 gem 'momentjs-rails', '>= 2.9.0'
-gem 'bootstrap3-datetimepicker-rails'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'jquery-ui-rails', '~> 4.2.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
