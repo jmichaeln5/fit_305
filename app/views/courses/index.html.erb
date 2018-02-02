@@ -1,6 +1,8 @@
 
 <h1>Courses</h1>
 
+
+
 <table>
   <thead>
     <tr>
@@ -12,8 +14,10 @@
   </thead>
 
   <tbody>
-    <% @courses.each do |course| %>
-      <tr>
+    <div class="row">
+      <div class="col-xs-6 col-md-4">
+        <% @courses.each do |course| %>
+        <tr>
 
         <td><%= image_tag course.image.url(:thumb) %></td>
         <td><%= course.name %></td>
@@ -31,8 +35,10 @@
         <td><%= link_to 'Edit', edit_course_path(course) %></td>
         <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
 
-      </tr>
-    <% end %>
+        </tr>
+        <% end %>
+      </div>
+    </div>
   </tbody>
 </table>
 
