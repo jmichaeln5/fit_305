@@ -1,16 +1,30 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
+
   before_action :authorize_user, only: [:show]
   before_action :authorize_instructor, except: [:new, :create, :index, :show]
 
-
   # GET /courses
   # GET /courses.json
+
+  def full_street_address
+    @course = Course.find(params[:id])
+    puts "#{address} #{city} #{state} #{zip}"
+  end
+
+  def lat
+    @course = Course.find(params[:id].latitude.float)
+  end
+
+  def lng
+    @course = Course.find(params[:id].longitude.float)
+  end
+
+
   def index
     @courses = Course.all
     @courses = current_instructor.courses if current_instructor
-
   end
 
   # GET /courses/1
@@ -81,7 +95,8 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :description, :instructor_id, :image, :fb_id, :fb_token, :date, :price)
+
+      params.require(:course).permit(:name, :description, :instructor_id, :image, :fb_id, :fb_token, :date, :price, :address, :city, :state, :zip)
 
     end
 end
