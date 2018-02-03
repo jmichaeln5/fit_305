@@ -25,9 +25,8 @@
 <hr>
 <% if session[:instructor_id] %>
 <td><%= link_to 'Go back', instructor_path(current_instructor) %> </td>
+<%= link_to 'Edit', edit_course_path(@course) %>
 <% else %>
 <td><%= link_to 'Go Back', courses_path%> </td>
+<td><%= link_to 'Purchase', new_charge_path %></td>
 <% end %>
-
-
-<%= link_to 'Edit', edit_course_path(@course) %>
