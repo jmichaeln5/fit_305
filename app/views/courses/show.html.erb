@@ -14,6 +14,22 @@
   <br>
   <%= image_tag @course.image.url(:medium) %>
 </p>
+
+<br>
+<hr>
+
+<p>
+  <strong>Course Location:</strong>
+  <br>
+  <h3>This map is rendered, found in: views/courses/show.html.erb</h3>
+  <%= render 'map', courses: @course %>
+  <p>Method: full_street_address | Address of course:<%= @course.full_street_address %></p>
+
+  <p><%= @course.lat %></p>
+  <p><%= @course.lng %></p>
+
+</p>
+
 <p class="price">
   <strong>Price:</strong>
   <%= @course.price %>
@@ -22,6 +38,7 @@
   <strong>Date:</strong>
   <%= @course.date %>
 </p>
+
 <hr>
 <% if session[:instructor_id] %>
 <td><%= link_to 'Go back', instructor_path(current_instructor) %> </td>
@@ -30,3 +47,7 @@
 <td><%= link_to 'Go Back', courses_path%> </td>
 <td><%= link_to 'Purchase', new_charge_path %></td>
 <% end %>
+
+
+
+
