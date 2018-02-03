@@ -1,6 +1,6 @@
 <!-- Add New Course  -->
 
-<%= form_with model: course, html:{multipart: true} do |form| %>
+<%= form_with model: course, local: true,  html:{multipart: true} do |form| %>
 
   <% if course.errors.any? %>
       <div id="error_explanation">
@@ -31,8 +31,6 @@
 <p> Geo Coder & _addcourse.html.erb</p>
 <p>we outttttt, find me in: _addcourse.html.erb </p>
 
-
-
 <div class="field">
   <%= form.label :address %>
   <%= form.text_area :address, id: :course_address %>
@@ -55,6 +53,30 @@
 </div>
 <!-- Location Params End  -->
 
+  <div class="field">
+    <%= form.label 'Price' %>
+    <%= form.text_field :price, id: :course_price %>
+  </div>
+  <div class="container">
+  <div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" name="course[date]"/>
+                        <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+    </div>
+</div>
 
   <% if @instructor.nil? %>
     <div class="field">

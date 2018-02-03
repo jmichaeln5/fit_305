@@ -22,7 +22,9 @@
   <%= @instructor.email %>
 </p>
 <%= link_to 'Edit', edit_instructor_path(@instructor) %>
-<!-- <%= link_to 'Back', instructors_path %> -->
+<%#= link_to 'Show', instructor_path %>
+<%= link_to 'Remove', @instructor, method: :delete, data: { confirm: 'Are you sure?' }%>
+<%#= link_to 'Back', instructors_path %>
 <br>
 
 <hr>

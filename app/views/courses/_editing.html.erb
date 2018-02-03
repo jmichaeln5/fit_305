@@ -25,7 +25,6 @@
     <%= form.text_area :description, id: :course_description %>
   </div>
 
-
   <div class="field">
     <%= form.label :address %>
     <%= form.text_area :address, id: :course_address %>
@@ -46,6 +45,39 @@
     <%= form.label :zip %>
     <%= form.text_area :zip, id: :course_zip %>
   </div>
+
+  <div class="field">
+    <%= form.label 'Price' %>
+    <%= form.text_area :price, id: :course_price %>
+  </div>
+  <div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                        <input type='text' class="form-control" name="course[date]"/>
+                        <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+    </div>
+</div>
+  <!-- <% if @instructor.nil? %>
+    <div class="field">
+      <%= form.label :instructor_id %>
+      <%= form.text_field :instructor_id %>
+    </div>
+  <% else %>
+   <%= form.hidden_field :instructor_id, value: @instructor.id %>
+  <% end %> -->
+
   <hr>
   <div class="actions">
     <%= form.submit "Update Class" %>

@@ -14,6 +14,7 @@
   <br>
   <%= image_tag @course.image.url(:medium) %>
 </p>
+
 <br>
 <hr>
 
@@ -24,12 +25,25 @@
   <%= render 'map', courses: @course %>
   <p>Method: full_street_address | Address of course:<%= @course.full_street_address %></p>
 
-
   <p><%= @course.lat %></p>
   <p><%= @course.lng %></p>
 
 </p>
 
+<p class="price">
+  <strong>Price:</strong>
+  <%= @course.price %>
+</p>
+<p class="date">
+  <strong>Date:</strong>
+  <%= @course.date %>
+</p>
+
 <hr>
-<%= link_to 'Done', instructor_path(current_instructor) %>
+<% if session[:instructor_id] %>
+<td><%= link_to 'Go back', instructor_path(current_instructor) %> </td>
+<% else %>
+<td><%= link_to 'Go Back', courses_path%> </td>
+<% end %>
+
 <%= link_to 'Edit', edit_course_path(@course) %>

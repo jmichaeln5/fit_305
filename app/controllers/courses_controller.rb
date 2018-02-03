@@ -1,9 +1,9 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
-  before_action :authorize_instructor, except: [:new, :create, :index]
 
-  # before_action :authorize_customer, only: [:show]
+  before_action :authorize_user, only: [:show]
+  before_action :authorize_instructor, except: [:new, :create, :index, :show]
 
   # GET /courses
   # GET /courses.json
@@ -24,13 +24,12 @@ class CoursesController < ApplicationController
 
   def index
     @courses = Course.all
+    @courses = current_instructor.courses if current_instructor
   end
 
   # GET /courses/1
   # GET /courses/1.json
   def show
-    @course = Course.find(params[:id])
-
   end
 
   # GET /courses/new
@@ -42,16 +41,15 @@ class CoursesController < ApplicationController
   def edit
   end
 
-
-  def authorize
-  end
+  # def authorize
+  # end
   # POST /courses
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-
     respond_to do |format|
       if @course.save
+        # byebug
         format.html { redirect_to @course, notice: 'Course was successfully created.' }
         format.json { render :show, status: :created, location: @course }
       else
@@ -79,10 +77,14 @@ class CoursesController < ApplicationController
   # DELETE /courses/1.json
   def destroy
     @course.destroy
-    respond_to do |format|
-      format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      # p 'Instructor was successfully destroyed.'
+      # redirect_to instructor_path(current_instructor)
+      # session[:instructor_id] = nil
+      respond_to do |format|
+        format.html { redirect_to courses_url, notice: 'Customer was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    # end
   end
 
   private
@@ -94,8 +96,7 @@ class CoursesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
 
-      params.require(:course).permit(:name, :description, :instructor_id, :image, :address, :city, :state, :zip)
-
+      params.require(:course).permit(:name, :description, :instructor_id, :image, :fb_id, :fb_token, :date, :price, :address, :city, :state, :zip)
 
     end
 end
