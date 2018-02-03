@@ -14,6 +14,22 @@
   <br>
   <%= image_tag @course.image.url(:medium) %>
 </p>
+<br>
+<hr>
+
+<p>
+  <strong>Course Location:</strong>
+  <br>
+  <h3>This map is rendered, found in: views/courses/show.html.erb</h3>
+  <%= render 'map', courses: @course %>
+  <p>Method: full_street_address | Address of course:<%= @course.full_street_address %></p>
+
+
+  <p><%= @course.lat %></p>
+  <p><%= @course.lng %></p>
+
+</p>
+
 <hr>
 <%= link_to 'Done', instructor_path(current_instructor) %>
 <%= link_to 'Edit', edit_course_path(@course) %>

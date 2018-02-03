@@ -17,6 +17,14 @@ class Course < ApplicationRecord
     "#{self.address} #{self.address2}, #{self.city}, #{self.state}, #{self.zip}"
   end
 
-end
+  def lat
+    self.latitude
+  end
 
+  def lng
+    self.longitude
+  end
+
+
+end
 # , dependent: :destroy

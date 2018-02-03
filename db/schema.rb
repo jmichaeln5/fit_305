@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20180131210615) do
 
   # These are extensions that must be enabled in order to support this database
@@ -75,6 +74,8 @@ ActiveRecord::Schema.define(version: 20180131210615) do
   end
 
   add_foreign_key "courses", "instructors"
+  add_foreign_key "courses_customers", "courses"
+  add_foreign_key "courses_customers", "customers"
   add_foreign_key "customer_courses", "courses"
   add_foreign_key "customer_courses", "customers"
 end

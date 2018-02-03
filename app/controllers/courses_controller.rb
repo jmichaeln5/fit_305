@@ -6,9 +6,23 @@ class CoursesController < ApplicationController
 
   # GET /courses
   # GET /courses.json
+
+  def full_street_address
+    @course = Course.find(params[:id])
+    puts "#{address} #{city} #{state} #{zip}"
+  end
+
+  def lat
+    @course = Course.find(params[:id].latitude.float)
+  end
+
+  def lng
+    @course = Course.find(params[:id].longitude.float)
+  end
+
+
   def index
     @courses = Course.all
-    @courses = current_instructor.courses if current_instructor
   end
 
   # GET /courses/1
@@ -79,7 +93,7 @@ class CoursesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
 
-      params.require(:course).permit(:name, :description, :instructor_id, :image, :fb_id, :fb_token)
+      params.require(:course).permit(:name, :description, :instructor_id, :image, :address, :city, :state, :zip)
 
 
     end
