@@ -34,8 +34,8 @@ function initMap() {
   //// prompted by your browser. If you see the error "The Geolocation service
   //// failed.", it means you probably did not give permission for the browser to
   //// locate you.
-
-
+  //
+  //
   //
   // var map, infoWindow;
   // function initMap() {
@@ -66,7 +66,7 @@ function initMap() {
   //     handleLocationError(false, infoWindow, map.getCenter());
   //   }
   // }
-  //
+
   // function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   //   infoWindow.setPosition(pos);
   //   infoWindow.setContent(browserHasGeolocation ?
