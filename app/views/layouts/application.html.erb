@@ -24,14 +24,15 @@
     <%= link_to 'Home', root_url %> |
     <%= link_to 'View Instructors', instructors_path %> | <%= link_to 'View courses',
      courses_path %>  | <%= link_to 'View Customers', customers_path %> |
-     <% if current_customer %>
-                 <a>Welcome&nbsp;&nbsp;&nbsp;<%= current_customer.first_name %> </a><%= link_to 'Log Out', logout_path %>
-        <% elsif current_instructor%>
-          <a>Welcome&nbsp;&nbsp;&nbsp;<%= current_instructor.first_name %> </a>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Log Out', logout_path %>
-        <% else %>
 
-          <%= link_to 'Log In', login_path%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Sign Up', signup_path %>&nbsp;&nbsp;
-    <% end %>
+     <% if current_customer %>
+       Welcome&nbsp;<a href="<%= customer_path(current_customer) %>"><%= current_customer.first_name %></a>&nbsp;&nbsp;<%= link_to 'Log Out', logout_path %>
+     <% elsif current_instructor%>
+      Welcome&nbsp;<a href="<%= instructor_path(current_instructor) %>"><%= current_instructor.first_name %> </a>&nbsp;&nbsp;<%= link_to 'Log Out', logout_path %>
+     <% else %>
+
+       <%= link_to 'Log In', login_path%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Sign Up', signup_path %>&nbsp;&nbsp;
+     <% end %>
 
      <!-- <%= link_to 'Log out', logout_path %> -->
     <fb:login-button id="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-auto-logout-link="true" data-turbolinks-permanent><!-- facebook login/status begin -->

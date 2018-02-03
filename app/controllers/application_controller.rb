@@ -17,6 +17,18 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize_instructor
+
      redirect_to(root_path, notice: "You must be logged in as an instructor to accesss this page") unless current_instructor
+  end
+  def authorize_user
+    # inspect whether user is logged in as instructor or customer
+    # if not, return false
+    if current_customer
+      return authorize_customer
+    elsif current_instructor
+      return authorize_instructor
+    end
+     return false
+
   end
 end

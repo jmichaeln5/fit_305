@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+     redirect_to "/" if logged_in?
   end
 
   def create
@@ -29,6 +30,12 @@ class SessionsController < ApplicationController
 
     redirect_to root_path
   end
+
+  private
+
+    def logged_in?
+      (current_customer || current_instructor) ? true : false
+    end
 
 end
 
