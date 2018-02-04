@@ -1,8 +1,7 @@
 class Course < ApplicationRecord
   belongs_to :instructor
-
-  has_and_belongs_to_many :customers
-  # has_many :customers, through: :customer_courses
+  has_many :customers_courses
+  has_many :customers, through: :customer_courses
 
   validates :name, presence: true
   validates :description, presence: true
