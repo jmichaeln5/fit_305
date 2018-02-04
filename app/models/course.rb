@@ -25,6 +25,5 @@ class Course < ApplicationRecord
     self.longitude
   end
 
-
 end
 # , dependent: :destroy
