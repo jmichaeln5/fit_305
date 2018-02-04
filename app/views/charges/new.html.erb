@@ -12,7 +12,9 @@
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= ENV['stripe_publishable_key'] %>"
-          data-description="A month's subscription"
+          data-description="Class"
           data-amount="500"
           data-locale="auto"></script>
 <% end %>
+
+<td><%= link_to 'Go back', customer_path(current_customer) %> </td>
