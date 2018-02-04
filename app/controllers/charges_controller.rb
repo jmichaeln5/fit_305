@@ -2,6 +2,11 @@ class ChargesController < ApplicationController
   def new
   end
 
+  def show
+    @charges = Customer.find(params[:id])
+
+  end
+
   def create
     # Amount in cents
     @amount = @course.price
@@ -22,4 +27,8 @@ class ChargesController < ApplicationController
     flash[:error] = e.message
     redirect_to new_charge_path
   end
+end
+
+def customer_params
+  params.require(:customer).permit(:username, :last_name, :first_name, :email, :password)
 end
