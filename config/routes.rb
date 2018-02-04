@@ -8,9 +8,12 @@ Rails.application.routes.draw do
 
   resources :charges
   resources :sessions
-  resources :courses
+  resources :courses do
+    resources :customer_courses, only: :create
+  end
   resources :customers
   resources :instructors
+
   # get 'home/index'
   # root 'sessions#new'
   root 'home#index'
