@@ -34,16 +34,18 @@
   <strong>Price:</strong>
   <%=  @course.price %>
 </p>
+
 <p class="date">
   <strong>Date:</strong>
   <%= @course.date %>
 </p>
 
-<hr>
 <% if session[:instructor_id] %>
 <td><%= link_to 'Go back', instructor_path(current_instructor) %> </td>
 <%= link_to 'Edit', edit_course_path(@course) %>
 <% else %>
 <td><%= link_to 'Go Back', courses_path%> </td>
+
 <td><%= link_to 'Purchase', course_customer_courses_path(@course.id), method: :post%></td>
+
 <% end %>
