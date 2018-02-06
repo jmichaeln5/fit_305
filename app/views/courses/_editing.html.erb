@@ -1,91 +1,159 @@
-<%= form_with model: courses, html:{multipart: true} do |form| %>
 
-  <% if courses.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(course.errors.count, "error") %> prohibited this reservation from being saved:</h2>
 
-        <ul>
-        <% course.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-  <!-- <h1>Add New Course</h1> -->
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image, id: :course_image %>
-  </div>
-  <div class="field">
-    <%= form.label 'Class Name:'%>
-    <%= form.text_field :name, id: :course_name %>
-  </div>
-  <div class="field">
-    <%= form.label 'Description of class' %>
-    <%= form.text_area :description, id: :course_description %>
-  </div>
+<h1>Edit Course</h1>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address, id: :course_address %>
-  </div>
-  <div class="field">
-    <%= form.label :address2 %>
-    <%= form.text_area :address2, id: :course_address2 %>
-  </div>
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_area :city, id: :course_city %>
-  </div>
-  <div class="field">
-    <%= form.label :state %>
-    <%= form.text_area :state, id: :course_state %>
-  </div>
-  <div class="field">
-    <%= form.label :zip %>
-    <%= form.text_area :zip, id: :course_zip %>
-  </div>
 
-  <div class="field">
-    <%= form.label 'Price' %>
-    <%= form.text_area :price, id: :course_price %>
-  </div>
 
-  <div class="container">
-    <div class="row">
-        <div class='col-sm-6'>
-            <div class="form-group">
-                <div class='input-group date' id='datetimepicker1'>
-                        <input type='text' class="form-control" name="course[date]"/>
-                        <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
+<div class="everything">
+  <div class="aligner">
+    <div class="aligner-items">
+      <div class="runner-background">
+          <div class="jon-instructors">
+
+
+
+            <!-- Nav bar begin -->
+            <!-- Nav bar begin -->
+            <!-- Nav bar begin -->
+            <!-- Nav bar begin -->
+            <!-- Nav bar begin -->
+
+
+  <div>
+      <font size="3em">
+              <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <a class="navbar-brand" href="<%= root_url %>">FIT305</a>
+                <%= link_to 'Home', root_url %> |
+                <%= link_to 'View Instructors', instructors_path %> | <%= link_to 'View courses',
+                courses_path %>  |
+
+                <% if current_customer %>
+                 Welcome&nbsp;<a href="<%= customer_path(current_customer) %>"><%= current_customer.first_name %></a>&nbsp;&nbsp;<%= link_to '| Log Out', logout_path %>
+                   <% elsif current_instructor%>
+                Welcome&nbsp;<a href="<%= instructor_path(current_instructor) %>"><%= current_instructor.first_name %> </a>&nbsp;&nbsp;<%= link_to '| Log Out', logout_path %>
+                   <% else %>
+                   <%= link_to 'Log In', login_path%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Sign Up', signup_path %>&nbsp;&nbsp;
+                <% end %>
+    </font>
+</div>
+              <a href="https://www.accuweather.com/en/us/miami-fl/33128/weather-forecast/347936" class="aw-widget-legal">
+            <!--
+            By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
+            -->
+            </a><div id="awcc1517885104740" class="aw-widget-current"  data-locationkey="347936" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1517885104740"></div><script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script><p>
+            </nav>
+              <br><br>
+              <hr>
+              <!-- Nav bar end -->
+              <!-- Nav bar end -->
+              <!-- Nav bar end -->
+              <!-- Nav bar end -->
+
+
+
+
+
+            <h1>Edit Course</h1>
+
+            <hr>
+
+          <%= form_with model: courses, html:{multipart: true} do |form| %>
+
+            <% if courses.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(course.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+                  <ul>
+                  <% course.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                  </ul>
                 </div>
+              <% end %>
+            <!-- <h1>Add New Course</h1> -->
+            <div class="field">
+              <%= form.label :image %>
+              <%= form.file_field :image, id: :course_image %>
             </div>
+            <div class="field">
+              <%= form.label 'Class Name:'%>
+              <%= form.text_field :name, id: :course_name %>
+            </div>
+            <div class="field">
+              <%= form.label 'Description of class' %>
+              <%= form.text_area :description, id: :course_description %>
+            </div>
+
+            <div class="field">
+              <%= form.label :address %>
+              <%= form.text_area :address, id: :course_address %>
+            </div>
+            <div class="field">
+              <%= form.label :address2 %>
+              <%= form.text_area :address2, id: :course_address2 %>
+            </div>
+            <div class="field">
+              <%= form.label :city %>
+              <%= form.text_area :city, id: :course_city %>
+            </div>
+            <div class="field">
+              <%= form.label :state %>
+              <%= form.text_area :state, id: :course_state %>
+            </div>
+            <div class="field">
+              <%= form.label :zip %>
+              <%= form.text_area :zip, id: :course_zip %>
+            </div>
+
+            <div class="field">
+              <%= form.label 'Price' %>
+              <%= form.text_area :price, id: :course_price %>
+            </div>
+
+            <div class="container">
+              <div class="row">
+                  <div class='col-sm-6'>
+                      <div class="form-group">
+                          <div class='input-group date' id='datetimepicker1'>
+                                  <input type='text' class="form-control" name="course[date]"/>
+                                  <span class="input-group-addon">
+                                  <span class="glyphicon glyphicon-calendar"></span>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+                  <script type="text/javascript">
+                      $(function () {
+                          $('#datetimepicker1').datetimepicker();
+                      });
+                  </script>
+              </div>
+          </div>
+            <!-- <% if @instructor.nil? %>
+              <div class="field">
+                <%= form.label :instructor_id %>
+                <%= form.text_field :instructor_id %>
+              </div>
+            <% else %>
+             <%= form.hidden_field :instructor_id, value: @instructor.id %>
+            <% end %> -->
+
+            <hr>
+            <div class="actions">
+              <%= form.submit "Update Class" %>
+            </div>
+
+            <div class="actions"> <%= link_to 'Remove', @course, method: :delete, data: { confirm: 'Are you sure?' } %></div>
+
+            <hr>
+          <% end %>
+
+
+          </div>
         </div>
-        <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-        </script>
+      </div>
     </div>
 </div>
-  <!-- <% if @instructor.nil? %>
-    <div class="field">
-      <%= form.label :instructor_id %>
-      <%= form.text_field :instructor_id %>
-    </div>
-  <% else %>
-   <%= form.hidden_field :instructor_id, value: @instructor.id %>
-  <% end %> -->
-
-  <hr>
-  <div class="actions">
-    <%= form.submit "Update Class" %>
-  </div>
-
-  <div class="actions"> <%= link_to 'Remove', @course, method: :delete, data: { confirm: 'Are you sure?' } %></div>
-
-  <hr>
-<% end %>
-<!-- <%= link_to 'Done', instructor_path(current_instructor) %> -->

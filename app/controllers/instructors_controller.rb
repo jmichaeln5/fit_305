@@ -1,6 +1,6 @@
 class InstructorsController < ApplicationController
   before_action :set_instructor, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_instructor, except: [:new, :create]
+  before_action :authorize_instructor, except: [:new, :create, :destroy, :index, :show]
   # GET /instructors
   # GET /instructors.json
   def index

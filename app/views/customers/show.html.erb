@@ -1,34 +1,101 @@
 
-<h1>Current Customer</h1>
-<p>
-  <strong>Username:</strong>
-  <%= @customer.username %>
-</p>
-<p>
-  <strong>Last name:</strong>
-  <%= @customer.last_name %>
-</p>
-<p>
-  <strong>First name:</strong>
-  <%= @customer.first_name %>
-</p>
-<p>
-  <strong>Email:</strong>
-  <%= @customer.email %>
-</p>
-<%= link_to 'Edit', edit_customer_path(@customer) %>
-<!-- <%= link_to 'Back', instructors_path %> -->
-<br>
+<h1>
+  Welcome&nbsp;<a href="<%= customer_path(current_customer) %>"><%= current_customer.first_name %>
+</h1>
 
-<hr>
 
-<h1>My Courses</h1>
+<div class="everything">
+  <div class="aligner">
+      <div class="aligner-items">
+        <div class="runner-background">
+          <div class="jon-instructors">
 
-  <%= render 'courses/current', courses: @customer.courses if @customer.courses.any? %>
 
-<hr>
 
-<%= link_to 'Check out our Classes', courses_path %>
 
-<!-- <%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %> -->
+
+                        <!-- Nav bar begin -->
+                        <!-- Nav bar begin -->
+                        <!-- Nav bar begin -->
+                        <!-- Nav bar begin -->
+                        <!-- Nav bar begin -->
+
+
+                        <div>
+                          <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+                              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                              </button>
+                            <a class="navbar-brand" href="<%= root_url %>">FIT305</a>
+                            <%= link_to 'Home', root_url %> |
+                            <%= link_to 'View Instructors', instructors_path %> | <%= link_to 'View courses',
+                            courses_path %>  |
+
+                            <% if current_customer %>
+                             Welcome&nbsp;<a href="<%= customer_path(current_customer) %>"><%= current_customer.first_name %></a>&nbsp;&nbsp;<%= link_to 'Log Out', logout_path %>
+                               <% elsif current_instructor%>
+                            Welcome&nbsp;<a href="<%= instructor_path(current_instructor) %>"><%= current_instructor.first_name %> </a>&nbsp;&nbsp;<%= link_to 'Log Out', logout_path %>
+                               <% else %>
+                               <%= link_to 'Log In', login_path%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Sign Up', signup_path %>&nbsp;&nbsp;
+                            <% end %>
+
+                          </div>
+                          <a href="https://www.accuweather.com/en/us/miami-fl/33128/weather-forecast/347936" class="aw-widget-legal">
+                        <!--
+                        By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
+                        -->
+                        </a><div id="awcc1517885104740" class="aw-widget-current"  data-locationkey="347936" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1517885104740"></div><script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script><p>
+                        </nav>
+                          <br><br>
+                          <hr>
+                          <!-- Nav bar end -->
+                          <!-- Nav bar end -->
+                          <!-- Nav bar end -->
+                          <!-- Nav bar end -->
+
+
+
+
+              <h1>
+                Hello&nbsp;<a href="<%= customer_path(current_customer) %>"><%= current_customer.first_name %>
+              </h1>
+
+              <p>
+                <strong>Username:</strong>
+                <%= @customer.username %>
+              </p>
+              <p>
+                <strong>Last name:</strong>
+                <%= @customer.last_name %>
+              </p>
+              <p>
+                <strong>First name:</strong>
+                <%= @customer.first_name %>
+              </p>
+              <p>
+                <strong>Email:</strong>
+                <%= @customer.email %>
+              </p>
+              <%= link_to 'Edit My Page', edit_customer_path(@customer) %>
+              <!-- <%= link_to 'Back', instructors_path %> -->
+              <br>
+
+              <hr>
+
+              <h1>My Courses</h1>
+
+                <%= render 'courses/current', courses: @customer.courses if @customer.courses.any? %>
+
+              <hr>
+
+            <h4>  <%= link_to 'Check out our Classes', courses_path %> </h4>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

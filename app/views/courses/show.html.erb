@@ -1,49 +1,113 @@
 <!-- <p id="notice"><%= notice %></p>  -->
 
-<h1>Course</h1>
-<p class="title">
-  <strong>Name:</strong>
-  <%= @course.name %>
-</p>
-<p class="description">
-  <strong>Description:</strong>
-  <%= @course.description %>
-</p>
-<p>
-  <strong>Course Photo:</strong>
-  <br>
-  <%= image_tag @course.image.url(:medium) %>
-</p>
+<h1>View Class</h1>
 
-<br>
-<hr>
 
-<p>
-  <strong>Course Location:</strong>
-  <br>
-  <h3>This map is rendered, found in: views/courses/show.html.erb</h3>
-  <%= render 'map', courses: @course %>
-  <p>Method: full_street_address | Address of course:<%= @course.full_street_address %></p>
+<div class="everything">
+  <div class="aligner">
+    <div class="aligner-items">
+      <div class="runner-background">
+          <div class="jon-instructors">
 
-  <p><%= @course.lat %></p>
-  <p><%= @course.lng %></p>
 
-</p>
+            <!-- Nav bar begin -->
+            <!-- Nav bar begin -->
+            <!-- Nav bar begin -->
+            <!-- Nav bar begin -->
+            <!-- Nav bar begin -->
 
-<p class="price">
-  <strong>Price:</strong>
-  <%=  @course.price %>
-</p>
 
-<p class="date">
-  <strong>Date:</strong>
-  <%= @course.date %>
-</p>
+  <div>
+      <font size="3em">
+              <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 
-<% if session[:instructor_id] %>
-<td><%= link_to 'Go back', instructor_path(current_instructor) %> </td>
-<%= link_to 'Edit', edit_course_path(@course) %>
-<% else %>
-<td><%= link_to 'Go Back', courses_path%> </td>
-<td><%= link_to 'Purchase', course_customer_courses_path(@course.id), method: :post%></td>
-<% end %>
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                <a class="navbar-brand" href="<%= root_url %>">FIT305</a>
+                <%= link_to 'Home', root_url %> |
+                <%= link_to 'View Instructors', instructors_path %> | <%= link_to 'View courses',
+                courses_path %>  |
+
+                <% if current_customer %>
+                 Welcome&nbsp;<a href="<%= customer_path(current_customer) %>"><%= current_customer.first_name %></a>&nbsp;&nbsp;<%= link_to '| Log Out', logout_path %>
+                   <% elsif current_instructor%>
+                Welcome&nbsp;<a href="<%= instructor_path(current_instructor) %>"><%= current_instructor.first_name %> </a>&nbsp;&nbsp;<%= link_to '| Log Out', logout_path %>
+                   <% else %>
+                   <%= link_to 'Log In', login_path%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Sign Up', signup_path %>&nbsp;&nbsp;
+                <% end %>
+    </font>
+</div>
+              <a href="https://www.accuweather.com/en/us/miami-fl/33128/weather-forecast/347936" class="aw-widget-legal">
+            <!--
+            By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
+            -->
+            </a><div id="awcc1517885104740" class="aw-widget-current"  data-locationkey="347936" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1517885104740"></div><script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script><p>
+            </nav>
+              <br><br>
+              <hr>
+              <!-- Nav bar end -->
+              <!-- Nav bar end -->
+              <!-- Nav bar end -->
+              <!-- Nav bar end -->
+
+              <div>
+                <h1>Class</h1>
+                <hr>
+                <h4 class="title">
+                  <strong>Name:</strong>
+                  <%= @course.name %>
+                </h4>
+                <h4 class="description">
+                  <strong>Description:</strong>
+                  <%= @course.description %>
+                </h4>
+                <h4>
+                  <strong>Course Photo:</strong>
+                  <br>
+                  <%= image_tag @course.image.url(:medium) %>
+                </h4>
+
+                <br>
+                <hr>
+
+                <h4>
+                  <strong>Course Location:</strong><%= @course.full_street_address %>
+                </h4>
+
+                <h4 class="price">
+                <h4>  <strong>Price: </strong>
+                  $<%= @course.price %>.00</h4>
+                </h4>
+
+                <h4 class="date">
+                  <strong>Date:</strong>
+                  <%= @course.date %>
+                </h4>
+
+
+                  <br>
+                  <%= render 'map', courses: @course %>
+
+
+                </p>
+
+
+              <h4>
+                <% if session[:instructor_id] %>
+                <td><%= link_to 'Go back |', instructor_path(current_instructor) %> </td>
+                <%= link_to 'Edit', edit_course_path(@course) %>
+                <% else %>
+                <td><%= link_to 'Go Back |' , courses_path%> </td>
+                <td><%= link_to 'Purchase', course_customer_courses_path(@course.id), method: :post%></td>
+                <% end %>
+
+              </h4>
+              </div>
+            </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

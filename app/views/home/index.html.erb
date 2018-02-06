@@ -1,5 +1,59 @@
 
 
 
+<div class="ultimate-center">
 
-<h1>Fit 305</h1>
+    <header class="v-header container">     <!--  HEADER BEGIN    -->
+
+<div class="header-overlay"></div>
+
+
+          <div class="fullscreen-video-wrap">
+              <video src="https://ak6.picdn.net/shutterstock/videos/1315366/preview/stock-footage-sport-athlete-chin-ups.mp4" autoplay="true" loop="true"></video>
+          </div> <!--* DIV * fullscreen-video-wrap *** END *** -->
+          <div class="header-content">
+
+
+                      <h1> <%= flash[:notice] %></h1>
+                          <p>
+                            <%= link_to 'View Instructors', instructors_path %> | <%= link_to 'View courses ',
+                             courses_path %> |
+
+                             <% if current_customer %>
+                               Welcome&nbsp;<a href="<%= customer_path(current_customer) %>"><%= current_customer.first_name %></a>&nbsp;&nbsp;<%= link_to 'Log Out', logout_path %>
+                             <% elsif current_instructor%>
+                              Welcome&nbsp;<a href="<%= instructor_path(current_instructor)%>"><%= current_instructor.first_name %> </a>&nbsp;&nbsp;<%= link_to 'Log Out', logout_path %>
+                             <% end %>
+                          </p>
+
+                  <div class="header-content">
+
+                      <div class="dropdown">
+                      <h1>Welcome to Fit 305 </h1>
+                      <h1>
+                        <font color="black">
+                          <%= link_to 'Log In', login_path%>
+                          or <%= link_to 'Sign Up', signup_path %>
+                      </h1>
+
+                      <br>
+
+                      <div class="dropdown-content">
+                        <br>
+                        <h2> <font color="white">Fitness on your time.</font></h2>
+
+                            <p>
+                              fit 305 serves you. Why waste hundreds on a gym membership you use twice a month? Fit 305 brings you your favorite exercise courses when you want. Sign up, login, get fit!
+                            </p>
+
+                          </div>
+                      </div>
+
+                  </div>
+
+                    <br>
+                </div>
+
+      </header>                      <!--  HEADER END    -->
+
+</div>
