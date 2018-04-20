@@ -1,113 +1,85 @@
 <!-- <p id="notice"><%= notice %></p>  -->
 
-<h1>View Class</h1>
+<div class="text-center">
+
+  <h1> <%= @course.name %> </h1>
+
+  <%= image_tag @course.image.url(:medium) %>
+  <br>
+  <br>
+    <h5>
+      <strong>Description:</strong>
+        <%= @course.description %>
+      <br>
+      <br>
+        <strong>Price: </strong>
+        $<%= @course.price %>.00
+      <br>
+      <br>
+        <strong>Instructor: </strong>
+        <%= link_to "#{@course.instructor.full_name}", instructor_path(@course.instructor) %>
+
+      <br>
+      <hr>
+      <br>
+      <%= link_to "Learn more about #{@course.instructor.first_name}", instructor_path(@course.instructor), class:"btn btn-secondary btn-lg btn-block", style: 'color: #eee;' %>
+      <br>
 
 
-<div class="everything">
-  <div class="aligner">
-    <div class="aligner-items">
-      <div class="runner-background">
-          <div class="jon-instructors">
+    <hr>
+    <br>
+      <strong>Course Location: </strong><%= @course.full_street_address %>
+    </h5>
+
+    <br>
 
 
-            <!-- Nav bar begin -->
-            <!-- Nav bar begin -->
-            <!-- Nav bar begin -->
-            <!-- Nav bar begin -->
-            <!-- Nav bar begin -->
+
+  <!-- Map Script Begin -->
+      <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+      <div id="map"></div>
+
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARS3w6Edhic58He7WGrUuaFMXSrAWvoC8&callback=initMap">
+      </script>
 
 
-  <div>
-      <font size="3em">
-              <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 
-                    <span class="navbar-toggler-icon"></span>
-                  </button>
-                <a class="navbar-brand" href="<%= root_url %>">FIT305</a>
-                <%= link_to 'Home', root_url %> |
-                <%= link_to 'View Instructors', instructors_path %> | <%= link_to 'View courses',
-                courses_path %>  |
-
-                <% if current_customer %>
-                 Welcome&nbsp;<a href="<%= customer_path(current_customer) %>"><%= current_customer.first_name %></a>&nbsp;&nbsp;<%= link_to '| Log Out', logout_path %>
-                   <% elsif current_instructor%>
-                Welcome&nbsp;<a href="<%= instructor_path(current_instructor) %>"><%= current_instructor.first_name %> </a>&nbsp;&nbsp;<%= link_to '| Log Out', logout_path %>
-                   <% else %>
-                   <%= link_to 'Log In', login_path%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Sign Up', signup_path %>&nbsp;&nbsp;
-                <% end %>
-    </font>
-</div>
-              <a href="https://www.accuweather.com/en/us/miami-fl/33128/weather-forecast/347936" class="aw-widget-legal">
-            <!--
-            By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
-            -->
-            </a><div id="awcc1517885104740" class="aw-widget-current"  data-locationkey="347936" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1517885104740"></div><script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script><p>
-            </nav>
-              <br><br>
-              <hr>
-              <!-- Nav bar end -->
-              <!-- Nav bar end -->
-              <!-- Nav bar end -->
-              <!-- Nav bar end -->
-
-              <div>
-                <h1>Class</h1>
-                <hr>
-                <h4 class="title">
-                  <strong>Name:</strong>
-                  <%= @course.name %>
-                </h4>
-                <h4 class="description">
-                  <strong>Description:</strong>
-                  <%= @course.description %>
-                </h4>
-                <h4>
-                  <strong>Course Photo:</strong>
-                  <br>
-                  <%= image_tag @course.image.url(:medium) %>
-                </h4>
-
-                <br>
-                <hr>
-
-                <h4>
-                  <strong>Course Location:</strong><%= @course.full_street_address %>
-                </h4>
-
-                <h4 class="price">
-                <h4>  <strong>Price: </strong>
-                  $<%= @course.price %>.00</h4>
-                </h4>
-
-                <h4 class="date">
-                  <strong>Date:</strong>
-                  <%= @course.date %>
-                </h4>
+      <script>
+      var lat = <%= @course.lat %>;
+      var lng = <%= @course.lng %>;
+      </script>
+  <!-- Map Script End -->
 
 
-                  <br>
-                  <%= render 'map', courses: @course %>
 
+  <h4>
+    <br>
+    <% if session[:instructor_id] == @course.instructor.id %>
+        <%= link_to 'Edit', edit_course_path(@course), class: 'btn btn-secondary btn-lg btn-block', style: 'color: white;'   %>
+        <br>
+        <%= link_to 'Back', instructor_path(current_instructor), class: 'btn btn-primary  btn-lg ', style: 'color: white;'  %>
+    <% else %>
 
-                </p>
+    <br>
 
-
-              <h4>
-                <% if session[:instructor_id] %>
-                <td><%= link_to 'Go back |', instructor_path(current_instructor) %> </td>
-                <%= link_to 'Edit', edit_course_path(@course) %>
-                <% else %>
-                <td><%= link_to 'Go Back |' , courses_path%> </td>
-                <td><%= link_to 'Purchase', course_customer_courses_path(@course.id), method: :post%></td>
-                <% end %>
-
-              </h4>
-              </div>
-            </div>
-
-
-        </div>
-      </div>
+    <div class="actions">
+      <%= link_to 'Purchase', course_customer_courses_path(@customer), method: :post, class: 'btn btn-lg btn-success', style: 'color: white;' %>
     </div>
-  </div>
+
+    <br>
+    <br>
+
+
+        <%= link_to 'Back', :back, class: 'btn btn-primary  btn-lg ', style: 'color: white;'  %>
+    <% end %>
+  </h4>
+
+
+
+
+
+  <br>
+  <br>
 </div>

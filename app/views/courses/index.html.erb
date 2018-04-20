@@ -1,107 +1,76 @@
+<div class="text-center">
+<br>
+  <h1>Courses</h1>
 
-
-<div class="everything">
-        <div class="aligner">
-          <div class="aligner-items">
-            <div class="runner-background">
-            <div class="jon-instructors">
-
-
-
-
-              <!-- Nav bar begin -->
-              <!-- Nav bar begin -->
-              <!-- Nav bar begin -->
-              <!-- Nav bar begin -->
-              <!-- Nav bar begin -->
-
-
-    <div>
-        <font size="3em">
-                <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                  <a class="navbar-brand" href="<%= root_url %>">FIT305</a>
-                  <%= link_to 'Home', root_url %> |
-                  <%= link_to 'View Instructors', instructors_path %> | <%= link_to 'View courses',
-                  courses_path %>  |
-
-                  <% if current_customer %>
-                   Welcome&nbsp;<a href="<%= customer_path(current_customer) %>"><%= current_customer.first_name %></a>&nbsp;&nbsp;<%= link_to '| Log Out', logout_path %>
-                     <% elsif current_instructor%>
-                  Welcome&nbsp;<a href="<%= instructor_path(current_instructor) %>"><%= current_instructor.first_name %> </a>&nbsp;&nbsp;<%= link_to '| Log Out', logout_path %>
-                     <% else %>
-                     <%= link_to 'Log In', login_path%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Sign Up', signup_path %>&nbsp;&nbsp;
-                  <% end %>
-      </font>
-  </div>
-                <a href="https://www.accuweather.com/en/us/miami-fl/33128/weather-forecast/347936" class="aw-widget-legal">
-              <!--
-              By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
-              -->
-              </a><div id="awcc1517885104740" class="aw-widget-current"  data-locationkey="347936" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1517885104740"></div><script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script><p>
-              </nav>
-                <br><br>
-                <hr>
-                <!-- Nav bar end -->
-                <!-- Nav bar end -->
-                <!-- Nav bar end -->
-                <!-- Nav bar end -->
+  <h4>
+    <br>
+    <% if session[:instructor_id]  %>
+      <hr>
+<br>
+          <%= link_to 'Create Course', new_course_path, class: 'btn btn-primary btn-lg btn-block', style: 'color: white;'  %>
+<br>
+      <hr>
+    <% end %>
+  </h4>
 
 
 
+ <% @courses.each do |course| %>
 
+ <h5> <strong> Class: </strong>  <%= course.name %> </h5>
 
-            <h1> Classes <h1>
-<hr>
+  <h5> <%= image_tag course.image.url(:medium) %> </h5>
 
-             <% @courses.each do |course| %>
-                <br><br><img src="<%=course.image.url %>" , class="img-thumbnail">
+  <h5> <strong> Instructor: </strong>
+    <%= link_to "#{course.instructor.full_name}", instructor_path(course.instructor) %>
+  </h5>
 
-              <h4> <strong> Class Title: </strong>  <%= course.name %> </h4>
+  <h5> <strong> Description: </strong> <%= course.description %> </h5>
 
-              <h4> <strong> Description: </strong> <%= course.description %>
-              </h4>
+  <h5> <strong> Price: </strong> $<%= course.price %> </h5>
+  <!-- <h5> <strong> Date and Time:</strong><%#=course.date %> </h5> -->
+<h4>
+  <% if current_instructor %>
+  <br>
+    <%= link_to 'Learn more', course_path(course) ,class: 'btn btn-info btn-lg', style: 'color: white' %>
+      <br>
+  <% else %>
+  <br>
+    <%= link_to 'Learn more', course_path(course) ,class: 'btn btn-info', style: 'color: white' %>
+    <br>
+    <br>
+    <%= link_to 'Purchase', course_customer_courses_path(course.id), method: :post, class: 'btn btn-success', style: 'color: white;' %>
+  <% end %>
+<br>
+  <hr>
 
-              <h4> <strong> Price: </strong> $<%= course.price %> </h4>
+</h4>
 
-              <h4> <strong> Date and Time:</strong><%=course.date %> </h4>
+<br>
 
+<% end %>
 
-
-
-
-
-
-
-            <%= link_to 'Learn more', course_path(course) ,class: 'btn btn-danger', style: 'color: white' %>
-                      <!-- <a href="<%= course_path(course) %>" class="btn btn-danger">Learn More</a> -->
-            <%= link_to 'Purchase', course_customer_courses_path(course.id), method: :post, class: 'btn btn-info', style: 'color: white;' %>
-
-
-
-
-            <% end %>
-            <br>
-            <br>
-            <h4>
-
-            <% if session[:instructor_id] %>
-            <td><%= link_to 'Back', instructor_path(current_instructor) %> </td>
-            <% elsif session[:customer_id] %>
-            <td><h4><%= link_to 'Back', customer_path(current_customer) %></h4> </td>
-            <% end %>
-            </div>
-
-            </h4>
+<br>
 
 
 
+<h4>
+<% if session[:instructor_id] %>
+  <%= link_to 'Back', :back, class: 'btn btn-primary btn-lg', style: 'color: white;'  %>
+<% elsif session[:customer_id] %>
+  <%= link_to 'Back', :back, class: 'btn btn-primary btn-lg', style: 'color: white;' %>
+<% end %>
+</h4>
 
 
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- <%= link_to 'Back', :back, class: 'btn btn-primary btn-lg', style: 'color: white;'  %> -->
+
 </div>
+
+
+
+
+
+
+
+<!--  -->

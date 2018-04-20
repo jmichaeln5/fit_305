@@ -1,5 +1,20 @@
+<div class="text-center">
 
-<%= render 'editing', courses: @course %>
+  <h1>Edit Course</h1>
 
+
+<%= render 'form', course: @course %>
 <!-- <%= link_to 'Show', @course %> | -->
-<%= link_to 'Back', course_path(@course) %>
+
+<hr>
+<br>
+
+  <div class="actions">
+    <%= link_to 'Delete Course', @course, method: :delete, data: { confirm: 'Are you sure you would like to delete this course?' }, class: "btn btn-danger btn-lg", :style=>'color:#FFFFFF;' %>
+  </div>
+  <br>
+
+  <hr>
+
+    <br><%= link_to 'Back', :back, class: 'btn btn-primary btn-lg', style: 'color: white;' %>
+</div>

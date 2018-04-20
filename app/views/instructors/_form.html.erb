@@ -1,105 +1,59 @@
+<div class="text-center">
+  <%= form_with(model: instructor, local: true) do |form| %>
+    <% if instructor.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(instructor.errors.count, "error") %> prohibited this instructor from being saved:</h2>
 
-<div class="everything">
-  <div class="aligner">
-      <div class="aligner-items">
-        <div class="runner-background">
-          <div class="jon-instructors">
+        <ul>
+        <% instructor.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
+    <br>
+    <hr>
+    <!-- <div class="field">
+      <%= form.label :fb_token %>
+      <%= form.text_field :fb_token, id: :user_fb_token %>
+    </div> -->
+    <div class="field">
+      <%= form.label 'Edit Profile Pic:' %>
+      <%= form.file_field :image, id: :instructor_image, style: 'background-color:#eee ;'  %>
+    </div>
+<hr>
+    <div class="field">
+      <%= form.label 'Edit Username:' %>
+      <%= form.text_field :username, id: :instructor_username %>
+    </div>
+<hr>
+    <div class="field">
+      <%= form.label 'Edit First Name:' %>
+      <%= form.text_field :first_name, id: :instructor_first_name %>
+    </div>
+<hr>
 
-
-                        <!-- Nav bar begin -->
-                        <!-- Nav bar begin -->
-                        <!-- Nav bar begin -->
-                        <!-- Nav bar begin -->
-                        <!-- Nav bar begin -->
-
-
-              <div>
-                  <font size="3em">
-                          <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-
-                                <span class="navbar-toggler-icon"></span>
-                              </button>
-                            <a class="navbar-brand" href="<%= root_url %>">FIT305</a>
-                            <%= link_to 'Home', root_url %> |
-                            <%= link_to 'View Instructors', instructors_path %> | <%= link_to 'View courses',
-                            courses_path %>  |
-
-                            <% if current_customer %>
-                             Welcome&nbsp;<a href="<%= customer_path(current_customer) %>"><%= current_customer.first_name %></a>&nbsp;&nbsp;<%= link_to '| Log Out', logout_path %>
-                               <% elsif current_instructor%>
-                            Welcome&nbsp;<a href="<%= instructor_path(current_instructor) %>"><%= current_instructor.first_name %> </a>&nbsp;&nbsp;<%= link_to '| Log Out', logout_path %>
-                               <% else %>
-                               <%= link_to 'Log In', login_path%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Sign Up', signup_path %>&nbsp;&nbsp;
-                            <% end %>
-                </font>
-            </div>
-                          <a href="https://www.accuweather.com/en/us/miami-fl/33128/weather-forecast/347936" class="aw-widget-legal">
-                        <!--
-                        By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
-                        -->
-                        </a><div id="awcc1517885104740" class="aw-widget-current"  data-locationkey="347936" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1517885104740"></div><script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script><p>
-                        </nav>
-                          <br><br>
-                          <hr>
-                          <!-- Nav bar end -->
-                          <!-- Nav bar end -->
-                          <!-- Nav bar end -->
-                          <!-- Nav bar end -->
-
-
-
-
-
-
-
-
-<%= form_with(model: instructor, local: true) do |form| %>
-  <% if instructor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(instructor.errors.count, "error") %> prohibited this instructor from being saved:</h2>
-
-      <ul>
-      <% instructor.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="field">
+      <%= form.label 'Edit Last Name:' %>
+      <%= form.text_field :last_name, id: :instructor_last_name %>
+    </div>
+<hr>
+    <div class="field">
+      <%= form.label 'Edit Email:' %>
+      <%= form.text_field :email, id: :instructor_email %>
+    </div>
+<br>
+<hr>
+  <br>
+    <div class="actions">
+      <%= form.submit 'Update Profile', class: 'btn btn-success btn-lg btn-block', method: :update, data: { confirm: 'Are you sure you would like to Update your profile?' }%>
     </div>
   <% end %>
-  <!-- <div class="field">
-    <%= form.label :fb_token %>
-    <%= form.text_field :fb_token, id: :user_fb_token %>
-  </div> -->
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image, id: :instructor_image %>
-  </div>
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username, id: :instructor_username %>
-  </div>
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, id: :instructor_first_name %>
-  </div>
+<br>
+    <hr>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, id: :instructor_last_name %>
-  </div>
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :instructor_email %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit 'Done' %>
-  </div>
-<% end %>
+  <br>
 
 
-</div>
-</div>
-</div>
-</div>
 </div>

@@ -1,15 +1,18 @@
 class InstructorsController < ApplicationController
   before_action :set_instructor, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_instructor, except: [:new, :create, :destroy, :index, :show]
+  # before_action :authorize_instructor, except: [:new, :create, :destroy, :index, :show]
+
+
   # GET /instructors
   # GET /instructors.json
   def index
-    @instructors = Instructor.all
+    @instructors = Instructor.all.order("created_at DESC")
   end
 
   # GET /instructors/1
   # GET /instructors/1.json
   def show
+    @instructor = Instructor.find(params[:id])
   end
 
   # GET /instructors/new
@@ -30,7 +33,7 @@ class InstructorsController < ApplicationController
           session[:instructor_id] = instructor.id
           redirect_to instructor_path(instructor.id)
         else
-          redirect_to root_path
+          redirect_to siginup_path
         end
   end
 

@@ -1,6 +1,15 @@
-<h1>Editing Instructor</h1>
+<div class="text-center">
+  <h1>Edit Your Profile</h1>
 
-<%= render 'form', instructor: @instructor %>
+  <%= render 'form', instructor: @instructor %>
 
-<!-- <%= link_to 'Show', @instructor %> | -->
-<!-- <%= link_to 'Back', instructors_path %> -->
+  <!-- <%= link_to 'Show', @instructor %> | -->
+  <!-- <%= link_to 'Back', instructors_path %> -->
+  <div class="actions">
+    <%= link_to 'Delete Account', @instructor, method: :delete, data: { confirm: 'Are you sure you would like to delete your account forever? Once deleted you can never recover it.' }, class: "btn btn-danger btn-lg", :style=>'color:#FFFFFF;' %>
+  </div>
+<br>
+  <hr>
+
+  <br><%= link_to 'Back', :back, class: 'btn btn-primary btn-lg', style: 'color: white;' %>
+</div>

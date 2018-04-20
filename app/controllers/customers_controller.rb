@@ -1,6 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_customer, except: [:new, :create]
+  # before_action :authorize_customer, except: [:new, :create]
 
   # GET /customers
   # GET /customers.json
@@ -11,6 +11,7 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
+    @customer_courses = @customer.courses.all
   end
 
   # GET /customers/new

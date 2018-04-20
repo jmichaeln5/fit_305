@@ -1,94 +1,47 @@
-<h1>Instructors</h1>
+<div class="text-center">
 
+  <h1 class="text-center"> Instructors</h1>
+  <br>
 
-<div class="everything">
-  <div class="aligner">
-      <div class="aligner-items">
-        <div class="runner-background">
-          <div class="jon-instructors">
+  <table class="table">
 
-
-                        <!-- Nav bar begin -->
-                        <!-- Nav bar begin -->
-                        <!-- Nav bar begin -->
-                        <!-- Nav bar begin -->
-                        <!-- Nav bar begin -->
-
-
-              <div>
-                  <font size="3em">
-                          <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-
-                                <span class="navbar-toggler-icon"></span>
-                              </button>
-                            <a class="navbar-brand" href="<%= root_url %>">FIT305</a>
-                            <%= link_to 'Home', root_url %> |
-                            <%= link_to 'View Instructors', instructors_path %> | <%= link_to 'View courses',
-                            courses_path %>  |
-
-                            <% if current_customer %>
-                             Welcome&nbsp;<a href="<%= customer_path(current_customer) %>"><%= current_customer.first_name %></a>&nbsp;&nbsp;<%= link_to '| Log Out', logout_path %>
-                               <% elsif current_instructor%>
-                            Welcome&nbsp;<a href="<%= instructor_path(current_instructor) %>"><%= current_instructor.first_name %> </a>&nbsp;&nbsp;<%= link_to '| Log Out', logout_path %>
-                               <% else %>
-                               <%= link_to 'Log In', login_path%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Sign Up', signup_path %>&nbsp;&nbsp;
-                            <% end %>
-                </font>
-            </div>
-                          <a href="https://www.accuweather.com/en/us/miami-fl/33128/weather-forecast/347936" class="aw-widget-legal">
-                        <!--
-                        By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
-                        -->
-                        </a><div id="awcc1517885104740" class="aw-widget-current"  data-locationkey="347936" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1517885104740"></div><script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script><p>
-                        </nav>
-                          <br><br>
-                          <hr>
-                          <!-- Nav bar end -->
-                          <!-- Nav bar end -->
-                          <!-- Nav bar end -->
-                          <!-- Nav bar end -->
-
-
-<div>
-              <table>
-                <thead>
-                  <tr>
-
-                    <th>Image</th>
-                    <br>
-                    <th>Last name</th>
-                    <br>
-                    <th>First name</th>
-                    <br>
-                    <th>Email</th>
-                    <th colspan="3"></th>
-
-                  </tr>
-                </thead>
-
-                <tbody>
-                  <% @instructors.each do |instructor| %>
-                    <tr>
-                      <td><%= image_tag instructor.image.url(:thumb) %></td>
-                      <td><%= instructor.last_name %></td>
-                      <td><%= instructor.first_name %></td>
-                      <td><%= instructor.email %></td>
-                      <td><%= link_to 'Show', instructor %></td>
-
-                    </tr>
-                  <% end %>
-                </tbody>
-              </table>
-
+    <tbody>
+      <% @instructors.each do |instructor| %>
+        <tr>
+          <td>
+            <br>
+            <%= image_tag instructor.image.url(:thumb) %>
+          </td>
+          <td>
+            <h5>
               <br>
-              <hr>
+              <br>
+              <%= instructor.first_name %>
+              <br>
+              <%= instructor.last_name %>
+              <br>
+              <%= instructor.email %>
+              <br>
+            </h5>
+          </td>
 
-              <h4> <%= link_to 'Back', :back %> </h4>
-</div>
+          <td>
+            <br>
+            <br>
+            <%= link_to 'Learn more', instructor ,class: 'btn btn-info btn-lg', style: 'color: white' %>
+            <br>
+            <br>
+          </td>
 
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-            </div>
-        </div>
-      </div>
-    </div>
+  <hr>
+
+  <br>
+
+  <%= link_to 'Back', :back, class: 'btn btn-primary  btn-lg ', style: 'color: white;'  %>
+
 </div>

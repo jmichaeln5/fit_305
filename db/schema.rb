@@ -71,4 +71,5 @@ ActiveRecord::Schema.define(version: 20180204193031) do
   add_foreign_key "courses", "instructors"
   add_foreign_key "customer_courses", "courses"
   add_foreign_key "customer_courses", "customers"
+  
 end

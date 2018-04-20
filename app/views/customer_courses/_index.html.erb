@@ -1,0 +1,50 @@
+<h1>Current Courses: </h1>
+
+<% if @customer_courses.any? %>
+
+  <p>________________________________________________</p>
+  <% @customer_courses.each do |customer_course|  %>
+
+    <div>
+    <%= customer_course.name %>: $<%=customer_course.price %>.00
+    <br>
+    <br>
+
+    <div class="actions">
+      <%= link_to 'Remove Course', @customer_course, method: :delete, data: { confirm: 'Are you sure you would like to remove this course?' }, class: "btn btn-danger", :style=>'color:#FFFFFF;' %>
+    </div>
+
+    <p>________________________________________________</p>
+    </div>
+
+  <% end %>
+
+<% end %>
+
+
+
+<!-- <%= courses.each do |course|%>
+<%= course.instructor%>
+<%end %> -->
+
+<!-- <br>
+<hr>
+<br>
+<h1>course = method defined in model</h1>
+<h3>Try raw SQL Queries on course method in view??</h3>
+course.length
+<br>
+<%= courses.length %>
+<br>
+course.ids
+<br>
+<%= courses.ids %>
+<br> -->
+
+
+
+
+
+<br>
+<br>
+<%= link_to 'Back', :back, class: 'btn btn-primary btn-lg', style: 'color: white;' %>

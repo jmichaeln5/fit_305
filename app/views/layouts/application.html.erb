@@ -3,20 +3,61 @@
 <html>
   <head>
     <title>Fit305</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     <%= csrf_meta_tags %>
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-
-
   <body>
+                                                <!-- Nav Bar Begin -->
+                                                <!-- Nav Bar Begin -->
+                                                <!-- Nav Bar Begin -->
+    <div>
+<nav class="navbar navbar-light bg-faded">
 
-      <%= flash[:notice] %>
-  
+  <a class="navbar-brand" href="<%= root_url %>">FIT305</a>
+  <%= link_to 'View Instructors', instructors_path %>  <%= link_to 'View Courses',
+  courses_path %>
+
+  <% if current_customer %>
+   <a href="<%= customer_path(current_customer) %>"> Welcome <%= current_customer.first_name %>
+  <%= link_to ' Log Out', logout_path %>
+  <% elsif current_instructor%>
+  <a href="<%= instructor_path(current_instructor) %>"> Welcome <%= current_instructor.first_name %> </a><%= link_to ' Log Out', logout_path %>
+  <% else %>
+   <%= link_to 'Log In', login_path%>
+   <%= link_to 'Sign Up', signup_path %>
+  <% end %>
+  </nav>
+
+  </div>
+
+
+
+
+
+                                                  <!-- Nav Bar End -->
+                                                  <!-- Nav Bar End -->
+                                                  <!-- Nav Bar End -->
+
+  <div class="container py-4 ">                  <!-- Container Begin -->
+
+    <% if flash[:notice] || flash[:error] %>
+      <br>
+      <br>
+      <h1 class="text-center"><%= flash[:notice]%></h1>
+      <h1 class="text-center"> <font color="red"><%= flash[:error]%></font></h1>
+      <br>
+      <br>
+      <% end %>
+
+    <h5>
     <%= yield %>
+    </h5>
+  </div>                                   <!-- Container End -->
 
   </body>
 </html>

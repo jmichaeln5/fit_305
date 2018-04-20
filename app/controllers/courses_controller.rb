@@ -6,26 +6,16 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
 
-  def full_street_address
-    @course = Course.find(params[:id])
-    puts "#{address} #{city} #{state} #{zip}"
-  end
-
-  def lat
-    @course = Course.find(params[:id].latitude.float)
-  end
-
-  def lng
-    @course = Course.find(params[:id].longitude.float)
-  end
-
   def index
-    @courses = Course.all
+    @courses = Course.all.order("created_at DESC")
   end
 
   # GET /courses/1
   # GET /courses/1.json
   def show
+    @instructor = Instructor.find(params[:id])
+    @customer = session[:customer_id]
+    # @customer_courses = @customer.courses.all
   end
 
   # GET /courses/new
@@ -35,6 +25,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/1/edit
   def edit
+    @course = Course.find(params[:id])
   end
 
   # def authorize
@@ -83,6 +74,19 @@ class CoursesController < ApplicationController
     # end
   end
 
+  def full_street_address
+    @course = Course.find(params[:id])
+    puts "#{address} #{city} #{state} #{zip}"
+  end
+
+  def lat
+    @course = Course.find(params[:id].latitude.float)
+  end
+
+  def lng
+    @course = Course.find(params[:id].longitude.float)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
@@ -92,7 +96,7 @@ class CoursesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
 
-      params.require(:course).permit(:name, :description, :instructor_id, :image, :fb_id, :fb_token, :date, :price, :address, :city, :state, :zip)
+      params.require(:course).permit(:name, :description, :instructor_id, :image, :fb_id, :fb_token, :date, :price, :address, :address2, :city, :state, :zip)
 
     end
 end

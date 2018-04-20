@@ -1,69 +1,29 @@
-<br><br>
-<hr>
+<div class="text-center">
 
-<%= link_to 'Go back', root_path %>
+<h1>Sign up <h1>
 
-  <header class="v-header container">     <!--  HEADER BEGIN    -->
+  <br>
+  <div class="row">
+    <div class="col">
 
+      <a href="/instructors/new">
+        <img src="https://awo.aws.org/wp-content/uploads/2016/08/Instructor-icon.png" alt="instructor" style="width:100%;height:100%;">
 
-<div class="header-overlay"></div>
-              <div class="fullscreen-video-wrap"> <!--*DIV* fullscreen-video-wrap *** BEGIN *** -->
-                <!-- <video src="https://www.videvo.net/videvo_files/converted/2015_08/preview/Ao_Nang_Beach_Yoga_MP4_HDV_1080p25__TanuriX_Stock_Footage_NS.mp488796.webm" autoplay="true" loop="true"></video> -->
+        <%= link_to 'New Instructor', new_instructor_path %>
 
-                <video src="https://ak6.picdn.net/shutterstock/videos/1315366/preview/stock-footage-sport-athlete-chin-ups.mp4" autoplay="true" loop="true"></video>
-              </div> <!--* DIV * fullscreen-video-wrap *** END *** -->
-              <div class="header-content">
+      </a>
 
-                <div class="header-content">
-                  <h1> <%= flash[:notice] %></h1>
+  </div>
+    <div class="col">
 
+      <a href="/customers/new">
+        <img src="http://www.tailormadenutrition.com/images/tailor_made/onlinestore-athlete-icon.png" alt="instructor" style="width:100%;height:100%;">
 
-                  <p>
-
-                    <%= link_to 'Home', root_url %> |
-                    <%= link_to 'View Instructors', instructors_path %> | <%= link_to 'View courses', courses_path %> |
-                     <% if current_customer %>
-                       Welcome&nbsp;<a href="<%= customer_path(current_customer) %>"><%= current_customer.first_name %></a>&nbsp;&nbsp;<%= link_to 'Log Out', logout_path %>
-                     <% elsif current_instructor%>
-                      Welcome&nbsp;<a href="<%= instructor_path(current_instructor)%>"><%= current_instructor.first_name %> </a>&nbsp;&nbsp;<%= link_to 'Log Out', logout_path %>
-                     <% else %>
-
-                       <%= link_to 'Log In', login_path%>
-                     <% end %>
-                  </p>
+        <%= link_to 'New Athlete', new_customer_path %>
 
 
+      </a>
 
-                <div class="form">
-                  <h1>
-
-                    <font color="white">
-                      <h1>would you like to sign up as a
-                        <br>
-
-
-
-
-                        <h1>
-                          <font color="black">
-                            <%= link_to 'Instructor', new_instructor_path %>
-                          or
-
-                      <%= link_to 'Athlete', new_customer_path %>
-                      </h1>
-                    </font>
-
-
-
-                  </div>
-
-                <br>
-                  <!-- <p><a href="#" class="btn"> HELLO</a></p> -->
-
-
-                </div>
-
-                </div>
-
-
-  </header>                      <!--  HEADER END    -->
+    </div>
+  </div>
+</div>

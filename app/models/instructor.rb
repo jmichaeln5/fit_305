@@ -5,4 +5,9 @@ class Instructor < ApplicationRecord
 
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>" }
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
+
 end

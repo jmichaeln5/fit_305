@@ -1,29 +1,80 @@
-<%= form_with(model: course, local: true) do |form| %>
-  <% if course.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+<div class="text-center">
+  <%= form_with model: course, local: true,  html:{multipart: true} do |form| %>
 
-      <ul>
-      <% course.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+    <% if course.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(course.errors.count, "error") %> prohibited this reservation from being saved:</h2>
+
+          <ul>
+          <% course.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
+
+  <hr>
+<br>
+    <div class="field">
+      <%= form.label 'Course Name:' %>
+      <%= form.text_field :name, id: :course_name %>
+    </div>
+<br>
+<div class="field">
+  <%= form.label 'Image:' %>
+  <%= form.file_field :image, id: :course_image, style: 'background-color:#eee ;' %>
+</div>
+
+<br>
+<hr>
+
+    <div class="field">
+      <%= form.label 'Description:' %>
+      <%= form.text_area :description, id: :course_description %>
+    </div>
+
+<hr>
+<!-- Location Params Begin -->
+  <div class="field">
+    <%= form.label 'Address:' %>
+    <%= form.text_field :address, id: :course_address %>
+  </div>
+  <div class="field">
+    <%= form.label 'City:' %>
+    <%= form.text_field :city, id: :course_city %>
+  </div>
+  <div class="field">
+    <%= form.label 'State:' %>
+    <%= form.text_field :state, id: :course_state %>
+  </div>
+  <div class="field">
+    <%= form.label 'ZIP:' %>
+    <%= form.text_field :zip, id: :course_zip %>
+  </div>
+<hr>
+
+<div class="field">
+  <%= form.label 'Address 2:' %>
+  <%= form.text_area :address2, id: :course_address2 %>
+</div>
+
+<hr>
+  <!-- Location Params End  -->
+
+    <div class="field">
+      <%= form.label 'Price:'%>
+      <p>$<%= form.text_field :price, id: :price%></p>
+    </div>
+<hr>
+
+<br>
+    <%= form.hidden_field :course_id, value: @course.id %>
+    <%= form.hidden_field :instructor_id, value: session[:instructor_id] %>
+
+    <div class="actions">
+      <%= form.submit "Save Course", class: 'btn btn-success btn-lg btn-block', style: 'color: white;'  %>
     </div>
   <% end %>
+<br>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :course_name %>
-  </div>
-
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :course_description %>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

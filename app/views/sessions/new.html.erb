@@ -42,32 +42,31 @@
 
                 <div class="form">
                   <h1>
+
                     <font color="black">
-                      <%= link_to 'Log In', login_path%>
- or <%= link_to 'Sign Up', signup_path %>
-                  <%= form_tag sessions_path do %>
-                </font>
-                  <p>
-                    <font color="black">
-                      <%= label_tag :email %>
-                      <%= text_field_tag :email %>
-                    </font>
-                  </p>
-                  <p>
-                    <font color="black">
-                  <%= label_tag :password %>
-                  <%= password_field_tag :password %>
+                      <%= link_to 'Log In', login_path%> or <%= link_to 'Sign Up', signup_path %>
+                      <%= form_tag sessions_path do %>
                     </font>
 
-                  </p>
-                  <p>
-                    <font color="black">
-                      <%= submit_tag 'Log in' %>
-                    </font>
-                  </p>
-                  <% end %></h1>
+                      <p>
+                        <font color="black">
+                          <%= label_tag :email %>
+                          <%= text_field_tag :email %>
+                        </font>
+                      </p>
+                      <p>
+                        <font color="black">
+                      <%= label_tag :password %>
+                      <%= password_field_tag :password %>
+                        </font>
 
-
+                      </p>
+                      <p>
+                        <font color="black">
+                          <%= submit_tag 'Log in' %>
+                        </font>
+                      </p>
+                      <% end %></h1>
                   </div>
 
                 <br>

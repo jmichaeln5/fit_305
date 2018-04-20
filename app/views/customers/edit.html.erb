@@ -1,3 +1,18 @@
-<h1>Editing</h1>
+<div class="text-center">
 
-<%= render 'form', customer: @customer %>
+  <h1>Edit Your Account</h1>
+
+  <%= render 'form', customer: @customer %>
+
+  <br>
+  <br>
+  <div class="actions">
+    <%= link_to 'Delete Account', @customer, method: :delete, data: { confirm: 'Are you sure you would like to delete your account forever? Once deleted you can never recover it.' }, class: "btn btn-danger ", :style=>'color:#FFFFFF;' %>
+  </div>
+  <br>
+  <hr>
+
+  <br><%= link_to 'Back', :back, class: 'btn btn-primary ', style: 'color: white;' %>
+  </div>
+
+</div>

@@ -1,117 +1,59 @@
+<div class="text-center">
 
-<div class="everything">
-  <div class="aligner">
-      <div class="aligner-items">
-        <div class="runner-background">
-          <div class="jon-instructors">
+  <hr>
+  <%= form_with(model: customer, local: true) do |form| %>
+    <% if customer.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
 
+        <ul>
+        <% customer.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <!-- <div class="hidden">
+      <%= form.label :fb_token %>
+      <%= form.text_field :fb_token, id: :user_fb_token %>
+    </div> -->
 
+    <div class="field">
+      <%= form.label :username %>
+      <%= form.text_field :username, id: :customer_username %>
+    </div>
 
+    <div class="field">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name, id: :customer_last_name %>
+    </div>
 
+    <div class="field">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name, id: :customer_first_name %>
+    </div>
 
-                        <!-- Nav bar begin -->
-                        <!-- Nav bar begin -->
-                        <!-- Nav bar begin -->
-                        <!-- Nav bar begin -->
-                        <!-- Nav bar begin -->
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email, id: :customer_email %>
+    </div>
 
+    <!-- <div class="field">
+      <%= form.label :password %>
+      <%= form.text_field :password_digest, id: :customer_password_digest %>
+    </div> -->
+  <br>
 
-                        <div>
-                          <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-                              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                              </button>
-                            <a class="navbar-brand" href="<%= root_url %>">FIT305</a>
-                            <%= link_to 'Home', root_url %> |
-                            <%= link_to 'View Instructors', instructors_path %> | <%= link_to 'View courses',
-                            courses_path %>  |
-
-                            <% if current_customer %>
-                             Welcome&nbsp;<a href="<%= customer_path(current_customer) %>"><%= current_customer.first_name %></a>&nbsp;&nbsp;<%= link_to 'Log Out', logout_path %>
-                               <% elsif current_instructor%>
-                            Welcome&nbsp;<a href="<%= instructor_path(current_instructor) %>"><%= current_instructor.first_name %> </a>&nbsp;&nbsp;<%= link_to 'Log Out', logout_path %>
-                               <% else %>
-                               <%= link_to 'Log In', login_path%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Sign Up', signup_path %>&nbsp;&nbsp;
-                            <% end %>
-
-                          </div>
-                          <a href="https://www.accuweather.com/en/us/miami-fl/33128/weather-forecast/347936" class="aw-widget-legal">
-                        <!--
-                        By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
-                        -->
-                        </a><div id="awcc1517885104740" class="aw-widget-current"  data-locationkey="347936" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1517885104740"></div><script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script><p>
-                        </nav>
-                          <br><br>
-                          <hr>
-                          <!-- Nav bar end -->
-                          <!-- Nav bar end -->
-                          <!-- Nav bar end -->
-                          <!-- Nav bar end -->
-
-
-
-
-
-
-
-
-
-
-
-
-<h1>Edit Your Profile</h1>
-<hr>
-<%= form_with(model: customer, local: true) do |form| %>
-  <% if customer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
-
-      <ul>
-      <% customer.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-  <!-- <div class="hidden">
-    <%= form.label :fb_token %>
-    <%= form.text_field :fb_token, id: :user_fb_token %>
-  </div> -->
 
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username, id: :customer_username %>
+
+  <!-- <div class="actions">
+    <%#= form.submit 'Update Profile', class: 'btn btn-success btn-lg btn-block', method: :update, data: { confirm: 'Are you sure you would like to Update your profile?' }%>
   </div>
-
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name, id: :customer_last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name, id: :customer_first_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email, id: :customer_email %>
-  </div>
-
-  <!-- <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password_digest, id: :customer_password_digest %>
-  </div> -->
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+ -->
 
 
-
-</div>
-</div>
-</div>
-</div>
 </div>

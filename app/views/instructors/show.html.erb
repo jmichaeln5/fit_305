@@ -1,102 +1,98 @@
-<!-- <p id="notice"><%= notice %></p> -->
-<div class="everything">
+<div class="text-center">
 
-        <div class="aligner">
-          <div class="aligner-items">
-            <div class="runner-background">
-            <div class="jon-instructors">
+<br>
+
+<p>
+  <%= image_tag @instructor.image.url(:thumb) %>
+</p>
+<p>
+  <strong>Username:</strong>
+  <%= @instructor.username %>
+</p>
+<p>
+  <strong>First name:</strong>
+  <%= @instructor.first_name %>
+</p>
+<p>
+  <strong>Last name:</strong>
+  <%= @instructor.last_name %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%= @instructor.email %>
+</p>
+
+<br>
+
+<hr>
+
+<h1> <%= @instructor.username %>'s Courses: </h1>
+
+<% if @instructor.courses.any? %>
+<table class="table">
+  <thead>
+    <tr>
+      <h4>
+        <th>Course</th>
+        <th></th>
+      </h4>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @instructor.courses.each do |course| %>
+      <tr>
+        <td>
+          <%= course.name %>
+          <br>
+          <%= image_tag course.image.url(:medium) %>
+            <br>
+          $<%= course.price %>
+            <br>
+          <%= course.date %>
+        </td>
+
+        <td>
+          <br>
+          <br>
+          <br>
+          <%= link_to 'Learn more', course_path(course) ,class: 'btn btn-info btn-lg', style: 'color: white' %>
+          <br>
+        </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else  %>
+  <h3>No Courses Available</h3>
+<% end %>
 
 
 
-              <!-- Nav bar begin -->
-              <!-- Nav bar begin -->
-              <!-- Nav bar begin -->
-              <!-- Nav bar begin -->
-              <!-- Nav bar begin -->
+<% if @instructor.id == session[:instructor_id] %>
+<hr>
+<br>
+  <%= link_to 'Create Course', new_course_path, class: 'btn btn-success btn-lg btn-block', style: 'color: white;'  %>
+<br>
+<hr>
+<br>
+<% end %>
 
 
-    <div>
-        <font size="3em">
-                <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                  <a class="navbar-brand" href="<%= root_url %>">FIT305</a>
-                  <%= link_to 'Home', root_url %> |
-                  <%= link_to 'View Instructors', instructors_path %> | <%= link_to 'View courses',
-                  courses_path %>  |
-
-                  <% if current_customer %>
-                   Welcome&nbsp;<a href="<%= customer_path(current_customer) %>"><%= current_customer.first_name %></a>&nbsp;&nbsp;<%= link_to '| Log Out', logout_path %>
-                     <% elsif current_instructor%>
-                  Welcome&nbsp;<a href="<%= instructor_path(current_instructor) %>"><%= current_instructor.first_name %> </a>&nbsp;&nbsp;<%= link_to '| Log Out', logout_path %>
-                     <% else %>
-                     <%= link_to 'Log In', login_path%>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to 'Sign Up', signup_path %>&nbsp;&nbsp;
-                  <% end %>
-      </font>
-  </div>
-                <a href="https://www.accuweather.com/en/us/miami-fl/33128/weather-forecast/347936" class="aw-widget-legal">
-              <!--
-              By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
-              -->
-              </a><div id="awcc1517885104740" class="aw-widget-current"  data-locationkey="347936" data-unit="f" data-language="en-us" data-useip="false" data-uid="awcc1517885104740"></div><script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script><p>
-              </nav>
-                <br><br>
-                <hr>
-                <!-- Nav bar end -->
-                <!-- Nav bar end -->
-                <!-- Nav bar end -->
-                <!-- Nav bar end -->
+<h4>
+  <br>
+      <%= link_to 'Back', :back, class: 'btn btn-primary  btn-lg ', style: 'color: white;'  %>
+<br>
+<hr>
+<br>
+</h4>
 
 
-                <h1>Current Instructor</h1>
-                <p>
-                  <strong>Instructor Photo:</strong><br>
-                  <%= image_tag @instructor.image.url(:thumb) %>
-                </p>
-                <p>
-                  <strong>Username:</strong>
-                  <%= @instructor.username %>
-                </p>
-                <p>
-                  <strong>First name:</strong>
-                  <%= @instructor.first_name %>
-                </p>
-                <p>
-                  <strong>Last name:</strong>
-                  <%= @instructor.last_name %>
-                </p>
-                <p>
-                  <strong>Email:</strong>
-                  <%= @instructor.email %>
-                </p>
-                <%= link_to 'Edit', edit_instructor_path(@instructor) %>
-                <%#= link_to 'Show', instructor_path %>
-                <%= link_to 'Remove', @instructor, method: :delete, data: { confirm: 'Are you sure?' }%>
-                <%#= link_to 'Back', instructors_path %>
-                <br>
+<br>
+<br>
+<br>
+<br>
 
-                <hr>
-
-                <h1>Current Courses</h1>
-
-                <% if @instructor.courses.any? %>
-                <hr>
-                  <%= render 'courses/current', courses: @instructor.courses%>
-                <% else  %>
-                  <h3>No courses Added yet...</h3>
-                <% end %>
-
-                <hr>
-
-                <h1>Add New Course</h1>
-
-                <%= render 'courses/addcourse', course: @instructor.courses.new %>
-
-                <%= link_to 'Log out', logout_path %>
-
-              </div>
-            </div>
-          </div>
-      </div>
-    </div>
+</div>
