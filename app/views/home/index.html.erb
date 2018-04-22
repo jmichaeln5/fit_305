@@ -7,7 +7,6 @@
 
 <h1>FIT305</h1>
 
-
 <link href="https://videos.pexels.com/videos/man-doing-pull-ups-857628" rel="canonical" />
 <link rel="stylesheet" media="all" href="https://static-videos.pexels.com/assets/application-d75c21f091faa67caa457422617b466c6c461e358c2e6cf3e87cf1773b456c50.css" data-turbolinks-track="true" />
 <script src="https://static-videos.pexels.com/assets/application-e5b196aa55854ce6bbc49ea0ee200922c91a354c20c390a8ef3765a629d6de1f.js" data-turbolinks-track="true" async="async"></script>
@@ -19,9 +18,36 @@
   <h1>
 FIT 305 serves you.
 </h1>
+
 <h1>
 Why waste hundreds on a gym membership you use twice a month? Fit 305 brings you your favorite exercise courses when you want where you want. Sign up, login, live Fit!
 </h1>
+
+<br>
+<br>
+<div class="form">
+    <font color="black">
+      <%= link_to 'Log In', login_path%> or <%= link_to 'Sign Up', signup_path %>
+      <%= form_tag sessions_path do %>
+    </font>
+
+      <div class=".col-md-4">
+
+      <%= label_tag :email %>
+      <%= text_field_tag :email %>
+
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+
+    </div>
+      <p>
+
+        <font color="black">
+          <%= submit_tag 'Log in' %>
+        </font>
+      </p>
+      <% end %>
+  </div>
 
 
 </div>

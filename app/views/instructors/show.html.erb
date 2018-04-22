@@ -28,6 +28,15 @@
 
 <h1> <%= @instructor.username %>'s Courses: </h1>
 
+<% if @instructor.id == session[:instructor_id] %>
+<hr>
+<br>
+  <%= link_to 'Create Course', new_course_path, class: 'btn btn-success btn-lg btn-block', style: 'color: white;'  %>
+<br>
+<br>
+<% end %>
+
+
 <% if @instructor.courses.any? %>
 <table class="table">
   <thead>
@@ -74,19 +83,18 @@
 <% if @instructor.id == session[:instructor_id] %>
 <hr>
 <br>
-  <%= link_to 'Create Course', new_course_path, class: 'btn btn-success btn-lg btn-block', style: 'color: white;'  %>
-<br>
+  <%= link_to 'Edit Profile', new_course_path, class: 'btn btn-secondary btn-lg', style: 'color: white;'  %>
+  <br>
+  <br>
 <hr>
 <br>
 <% end %>
 
 
 <h4>
-  <br>
-      <%= link_to 'Back', :back, class: 'btn btn-primary  btn-lg ', style: 'color: white;'  %>
+      <%= link_to 'Back', :back, class: 'btn btn-primary  btn-lg ', style: 'color: white;' %>
 <br>
 <hr>
-<br>
 </h4>
 
 

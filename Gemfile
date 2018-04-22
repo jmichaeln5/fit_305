@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'webpacker', '~> 3.4'
+gem 'nodejs-rails', '~> 0.0.1'
 gem 'yarn', '~> 0.1.1'
 gem 'bootstrap', '~> 4.1.0'
 gem 'geocoder'

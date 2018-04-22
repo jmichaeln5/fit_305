@@ -4,11 +4,13 @@
 
   <h4>
     <br>
-    <% if session[:instructor_id]  %>
-      <hr>
-<br>
-          <%= link_to 'Create Course', new_course_path, class: 'btn btn-primary btn-lg btn-block', style: 'color: white;'  %>
-<br>
+      <% if session[:instructor_id]  %>
+    <hr>
+
+    <br>
+      <%= link_to 'Create Course', new_course_path, class: 'btn btn-primary btn-lg btn-block', style: 'color: white;'  %>
+    <br>
+    
       <hr>
     <% end %>
   </h4>
