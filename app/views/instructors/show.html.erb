@@ -83,7 +83,7 @@
 <% if @instructor.id == session[:instructor_id] %>
 <hr>
 <br>
-  <%= link_to 'Edit Profile', new_course_path, class: 'btn btn-secondary btn-lg', style: 'color: white;'  %>
+  <%= link_to 'Edit Profile', edit_instructor_path(@instructor), class: 'btn btn-secondary btn-lg', style: 'color: white;'  %>
   <br>
   <br>
 <hr>

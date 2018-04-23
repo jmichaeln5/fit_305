@@ -22,6 +22,10 @@ class InstructorsController < ApplicationController
 
   # GET /instructors/1/edit
   def edit
+    if @instructor.id != session[:instructor_id]
+      redirect_to instructors_path
+   end
+
   end
 
   # POST /instructors

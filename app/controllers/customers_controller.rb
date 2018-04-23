@@ -5,13 +5,19 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all
+    redirect_to courses_path
+      # @customers = Customer.all
   end
 
   # GET /customers/1
   # GET /customers/1.json
   def show
+     if @customer.id != session[:customer_id]
+       redirect_to instructors_path
+    end
+
     @customer_courses = @customer.courses.all
+
   end
 
   # GET /customers/new

@@ -1,4 +1,6 @@
 <div class="text-center">
+
+
   <br>
     <h1>
       Hello <%= current_customer.first_name %> </a>
@@ -33,7 +35,15 @@
   <br>
   <hr>
   <br>
-    <%= render 'customer_courses/index', courses: @customer.courses if @customer.courses.any? %>
+
+  <%# if @customer.id == session[:customer_id] && @customer.courses.any?  %>
+  <%#= render 'customer_courses/index', courses: @customer.courses %>
+  <%# end %>
+
+  <% if @customer.courses.any?  %>
+    <%= render 'customer_courses/index', courses: @customer.courses %>
+  <% end %>
+
 
     <hr>
 
