@@ -7,7 +7,7 @@ end
 
 gem 'webpacker', '~> 3.4'
 gem 'nodejs-rails', '~> 0.0.1'
-gem 'yarn'
+# gem 'yarn'
 gem 'bootstrap', '~> 4.1.0'
 gem 'geocoder'
 gem 'jquery-rails'
