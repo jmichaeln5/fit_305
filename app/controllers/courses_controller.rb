@@ -13,9 +13,7 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
-    @instructor = Instructor.find(params[:id])
     @customer = session[:customer_id]
-    # @customer_courses = @customer.courses.all
   end
 
   # GET /courses/new
