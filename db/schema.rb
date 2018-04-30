@@ -21,10 +21,10 @@ ActiveRecord::Schema.define(version: 20180430161259) do
     t.bigint "instructor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
+    # t.string "image_file_name"
+    # t.string "image_content_type"
+    # t.integer "image_file_size"
+    # t.datetime "image_updated_at"
     t.string "address"
     t.string "address2"
     t.string "city"
@@ -63,10 +63,10 @@ ActiveRecord::Schema.define(version: 20180430161259) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
+    # t.string "image_file_name"
+    # t.string "image_content_type"
+    # t.integer "image_file_size"
+    # t.datetime "image_updated_at"
     t.string "image"
   end
 
