@@ -3,8 +3,12 @@
 <br>
 
 <p>
-  <%= image_tag @instructor.image.url(:medium) %>
+  <% if @instructor.image.url %>
+  <%= image_tag @instructor.image.url, class: "image-small" %>
+  <% end %>
 </p>
+
+
 <p>
   <strong>Username:</strong>
   <%= @instructor.username %>
@@ -42,7 +46,6 @@
   <thead>
     <tr>
       <h4>
-        <th>Course</th>
         <th></th>
       </h4>
 
@@ -55,19 +58,18 @@
         <td>
           <%= course.name %>
           <br>
-          <%= image_tag course.image.url(:medium) %>
+          <%= image_tag course.image.url, class: 'image-medium' %>
             <br>
           $<%= course.price %>
             <br>
-          <%= course.date %>
+
+          <br>
+          <%= link_to "Learn more about #{course.name}", course_path(course) ,class: 'btn btn-info btn-lg', style: 'color: white' %>
+          <hr>
+
         </td>
 
         <td>
-          <br>
-          <br>
-          <br>
-          <%= link_to 'Learn more', course_path(course) ,class: 'btn btn-info btn-lg', style: 'color: white' %>
-          <br>
         </td>
 
       </tr>
@@ -83,7 +85,8 @@
 <% if @instructor.id == session[:instructor_id] %>
 <hr>
 <br>
-  <%= link_to 'Edit Profile', edit_instructor_path(@instructor), class: 'btn btn-secondary btn-lg', style: 'color: white;'  %>
+
+  <%= link_to 'Edit Profile', edit_instructor_path(@instructor), class: "btn btn-lg  btn-default"  %>
   <br>
   <br>
 <hr>

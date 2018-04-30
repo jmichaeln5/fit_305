@@ -19,18 +19,26 @@
 
  <% @courses.each do |course| %>
 
- <h5> <strong> Class: </strong>  <%= course.name %> </h5>
+  <strong> Class: </strong>  <%= course.name %>
+  <br>
+  <br>
 
-  <h5> <%= image_tag course.image.url(:medium) %> </h5>
-
-  <h5> <strong> Instructor: </strong>
+   <%= image_tag course.image.url, class: "image-medium" %>
+   <br>
+   <br>
+   <strong> Instructor: </strong>
     <%= link_to "#{course.instructor.full_name}", instructor_path(course.instructor) %>
-  </h5>
+    <br>
+    <br>
 
-  <h5> <strong> Description: </strong> <%= course.description %> </h5>
 
-  <h5> <strong> Price: </strong> $<%= course.price %> </h5>
-  <!-- <h5> <strong> Date and Time:</strong><%#=course.date %> </h5> -->
+   <strong> Description: </strong> <%= course.description %>
+   <br>
+   <br>
+
+   <strong> Price: </strong> $<%= course.price %>
+  <!-- <strong> Date and Time:</strong><%#=course.date %>  -->
+
 <h4>
   <% if current_instructor %>
   <br>
@@ -43,6 +51,7 @@
     <br>
     <%= link_to 'Purchase', course_customer_courses_path(course.id), method: :post, class: 'btn btn-success', style: 'color: white;' %>
   <% end %>
+
 <br>
   <hr>
 

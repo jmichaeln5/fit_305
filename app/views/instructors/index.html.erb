@@ -1,34 +1,29 @@
 <div class="text-center">
 
   <h1 class="text-center"> Instructors</h1>
+
   <br>
 
   <table class="table">
-
     <tbody>
       <% @instructors.each do |instructor| %>
         <tr>
           <td>
-            <br>
-            <%= image_tag instructor.image.url(:medium) %>
+            <%= image_tag instructor.image.url ,class: 'image-small' if instructor.image? %>
           </td>
           <td>
-            <h5>
               <br>
+              <%= instructor.first_name %> <%= instructor.last_name %>
               <br>
-              <%= instructor.first_name %>
-              <br>
-              <%= instructor.last_name %>
               <br>
               <%= instructor.email %>
               <br>
-            </h5>
+              <br>
+              <%= link_to 'Learn more', instructor ,class: 'btn btn-info', style: 'color: white' %>
           </td>
 
           <td>
             <br>
-            <br>
-            <%= link_to 'Learn more', instructor ,class: 'btn btn-info btn-lg', style: 'color: white' %>
             <br>
             <br>
           </td>
@@ -36,7 +31,9 @@
         </tr>
       <% end %>
     </tbody>
+    </h3>
   </table>
+
 
   <hr>
 

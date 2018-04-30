@@ -25,13 +25,13 @@
       <%= @customer.email %>
     </p>
 
-    <%= link_to 'Edit My Page', edit_customer_path(@customer), class:"btn btn-secondary",  style: 'color: #eee;'  %>
+    <%= link_to 'Edit My Profile',  edit_customer_path(@customer), class: "btn   btn-default"  %>
 
     <br>
 
   <hr>
   <br>
-    <h4>  <%= link_to 'Browse our Courses', courses_path, class:"btn btn-primary btn-lg btn-block",  style: 'color: #eee;'  %> </h4>
+    <h4>  <%= link_to 'Browse our Courses', courses_path, class:"btn btn-success btn-lg btn-lg btn-block",  style: 'color: #eee;'  %> </h4>
   <br>
   <hr>
   <br>
@@ -42,10 +42,14 @@
 
   <% if @customer.courses.any?  %>
     <%= render 'customer_courses/index', courses: @customer.courses %>
+    <% else %>
+      <h1> No Courses Available.</h1>
   <% end %>
 
 
     <hr>
+
+    <%= link_to 'Back', :back, class: 'btn btn-primary  btn-lg ', style: 'color: white;' %>
 
 
 </div>

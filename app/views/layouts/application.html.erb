@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 
+<!-- !!!!! ****   When deploying to Heroku  ***** !!!!-->
+
+ <!-- visit app/uploaders/image_uploader.rb and switch out commented lines  -->
+ <!-- visit app/config/initialziers/ carrierwave.rb and  uncomment file  -->
+<!-- Deploy to Heroku -->
+<!-- REVERSE STEPS WHEN IN DEVELOPMENT -->
+
+
 <html>
   <head>
     <title>Fit360</title>
@@ -11,38 +19,40 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-                                                <!-- Nav Bar Begin -->
-                                                <!-- Nav Bar Begin -->
-                                                <!-- Nav Bar Begin -->
-    <div>
-      
+  <!-- Nav Bar Begin -->
+  <!-- Nav Bar Begin -->
+  <!-- Nav Bar Begin -->
 <nav class="navbar navbar-light bg-faded">
 
-  <a class="navbar-brand" href="<%= root_url %>">FIT360</a>
-  <%= link_to 'View Instructors', instructors_path %>  <%= link_to 'View Courses',
-  courses_path %>
+<a class="navbar-brand" href="<%= root_url %>">FIT360</a>
 
-  <% if current_customer %>
-   <a href="<%= customer_path(current_customer) %>"> Welcome <%= current_customer.first_name %>
-  <%= link_to ' Log Out', logout_path %>
-  <% elsif current_instructor%>
-  <a href="<%= instructor_path(current_instructor) %>"> Welcome <%= current_instructor.first_name %> </a><%= link_to ' Log Out', logout_path %>
-  <% else %>
-   <%= link_to 'Log In', login_path%>
-   <%= link_to 'Sign Up', signup_path %>
-  <% end %>
-  </nav>
+<div class="navbar-brand">
 
-  </div>
+<%= link_to 'View Instructors', instructors_path %> |
+<%= link_to 'View Courses', courses_path %>
+
+</div>
+
+<div class="navbar-brand navbar-right">
+<% if current_customer %>
+    <a href="<%= customer_path(current_customer) %>"> Welcome <%= current_customer.first_name %> |
+    <%= link_to '   Log Out', logout_path %>
+<% elsif current_instructor%>
+    <a href="<%= instructor_path(current_instructor) %>"> Welcome <%= current_instructor.first_name %> </a><%= link_to ' Log Out', logout_path %>
+<% else %>
+    <%= link_to 'Log In   ', login_path%> |
+    <%= link_to '  Sign Up', signup_path %>
+<% end %>
+</div>
+</nav>
+
+<!-- Nav Bar End -->
+<!-- Nav Bar End -->
+<!-- Nav Bar End -->
 
 
 
-
-
-                                                  <!-- Nav Bar End -->
-                                                  <!-- Nav Bar End -->
-                                                  <!-- Nav Bar End -->
+  <body>
 
   <div class="container py-4 ">                  <!-- Container Begin -->
 
@@ -55,9 +65,7 @@
       <br>
       <% end %>
 
-    <h5>
     <%= yield %>
-    </h5>
   </div>                                   <!-- Container End -->
 
   </body>

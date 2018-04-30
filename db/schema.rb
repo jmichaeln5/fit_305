@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204193031) do
+ActiveRecord::Schema.define(version: 20180430161259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20180204193031) do
     t.float "longitude"
     t.string "date"
     t.integer "price"
+    t.string "image"
     t.index ["instructor_id"], name: "index_courses_on_instructor_id"
   end
 
@@ -66,10 +67,10 @@ ActiveRecord::Schema.define(version: 20180204193031) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.string "image"
   end
 
   add_foreign_key "courses", "instructors"
   add_foreign_key "customer_courses", "courses"
   add_foreign_key "customer_courses", "customers"
-  
 end

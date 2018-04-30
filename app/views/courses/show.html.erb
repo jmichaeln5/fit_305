@@ -4,7 +4,7 @@
 
   <h1> <%= @course.name %> </h1>
 
-  <%= image_tag @course.image.url(:medium) %>
+  <%= image_tag @course.image.url, class: "image-medium" %>
   <br>
   <br>
     <h5>
@@ -22,7 +22,13 @@
       <br>
       <hr>
       <br>
-      <%= link_to "Learn more about #{@course.instructor.first_name}", instructor_path(@course.instructor), class:"btn btn-secondary btn-lg btn-block", style: 'color: #eee;' %>
+      <%= link_to "Learn more about #{@course.instructor.full_name}", instructor_path(@course.instructor) ,class: 'btn btn-info btn-lg', style: 'color: white' %>
+
+<hr>
+
+      <%= link_to 'Purchase', course_customer_courses_path(@course.id), method: :post, class: 'btn btn-success btn-lg', style: 'color: white;' %>
+
+
       <br>
 
 

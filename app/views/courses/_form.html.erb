@@ -20,10 +20,19 @@
       <%= form.text_field :name, id: :course_name %>
     </div>
 <br>
-<div class="field">
-  <%= form.label 'Image:' %>
-  <%= form.file_field :image, id: :course_image, style: 'background-color:#eee ;' %>
-</div>
+
+
+  <div class="action">
+    <%= form.label 'Course Photo:' %>
+    <%= form.file_field :image, class: "btn btn-default" %>
+    <% if @course.image? %>
+    <br>
+      <%= image_tag @course.image.url, class: "image-medium" %>
+      <br>
+      <%= form.check_box :remove_image %> Remove Image
+    <% end %>
+  </div>
+
 
 <br>
 <hr>

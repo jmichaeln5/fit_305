@@ -8,18 +8,17 @@ end
 gem 'webpacker', '~> 3.4'
 gem 'nodejs-rails', '~> 0.0.1'
 # gem 'yarn'
-gem 'bootstrap', '~> 4.1.0'
+gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'geocoder'
 gem 'jquery-rails'
 gem "figaro"
 gem 'hirb', '~> 0.7.3'
 gem 'stripe'
-gem "paperclip", "~> 4.3"
+# gem "paperclip", "~> 4.3"
+gem 'carrierwave', '~> 1.0'
+gem 'fog-aws'
 
-# gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
-# gem 'aws-sdk-rails'
-# gem 'aws-sdk', '< 2.0'
-# gem 'aws-sdk', '~> 2'
+############################################
 
 
 gem 'momentjs-rails', '>= 2.9.0'
